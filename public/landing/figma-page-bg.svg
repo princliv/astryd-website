@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1728 5140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <!-- Exact layered backgrounds from Figma node 1291:903 (MacBook Pro 16" - 5) -->
+  <rect width="1728" height="5140" fill="#050B16"/>
+  <rect width="1728" height="5140" fill="url(#figmaGrad4)"/>
+  <rect width="1728" height="5140" fill="url(#figmaGrad3)" opacity="0.3"/>
+  <rect width="1728" height="5140" fill="url(#figmaGrad2)"/>
+  <rect width="1728" height="5140" fill="url(#figmaGrad1)"/>
+  <defs>
+    <!-- Centered teal bloom behind navbar / hero -->
+    <radialGradient id="figmaGrad1" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10" gradientTransform="matrix(280 90 -55 150 864 -420)">
+      <stop stop-color="rgba(0,196,205,1)" offset="0"/>
+      <stop stop-color="rgba(0,157,164,0.75)" offset="0.22115"/>
+      <stop stop-color="rgba(0,118,123,0.5)" offset="0.44231"/>
+      <stop stop-color="rgba(0,40,42,0)" offset="0.88462"/>
+    </radialGradient>
+    <!-- Soft cyan wash centered near upper hero -->
+    <radialGradient id="figmaGrad2" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10" gradientTransform="matrix(260 0 0 95 864 480)">
+      <stop stop-color="rgba(46,236,245,0.11)" offset="0.15758"/>
+      <stop stop-color="rgba(15,37,64,0)" offset="0.86538"/>
+    </radialGradient>
+    <!-- Wide teal veil centered -->
+    <radialGradient id="figmaGrad3" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10" gradientTransform="matrix(40 200 -520 -400 864 -20)">
+      <stop stop-color="rgba(0,80,90,0.6)" offset="0"/>
+      <stop stop-color="rgba(0,80,90,0)" offset="1"/>
+    </radialGradient>
+    <!-- Left navy depth ramp into #050B16 -->
+    <radialGradient id="figmaGrad4" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="10" gradientTransform="matrix(154.95 122.83 -440.5 -7.524 -910 1050)">
+      <stop stop-color="rgba(15,37,64,1)" offset="0"/>
+      <stop stop-color="rgba(10,24,43,1)" offset="0.5"/>
+      <stop stop-color="rgba(5,11,22,1)" offset="1"/>
+    </radialGradient>
+  </defs>
+</svg>
