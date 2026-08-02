@@ -32,7 +32,7 @@ export function HeroSection() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00C4CD]" />
               </span>
               <span className="whitespace-nowrap font-['Inter'] text-[16px] font-medium text-[#FFFFFF] sm:text-[18px]">
-                Now accepting pilot customers
+                Now accepting pilot cohort
               </span>
             </div>
             <a href="#cta" className="landing-cta-primary w-full sm:w-auto">

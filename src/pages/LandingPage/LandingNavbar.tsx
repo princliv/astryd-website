@@ -34,7 +34,12 @@ export function LandingNavbar() {
             textClassName="text-[16px] sm:text-[18px] lg:text-[20px]"
           />
           <div className="landing-nav-actions">
-            <a href="#cta" className="landing-nav-signin">
+            <a
+              href="https://dashboard.astryd-ai.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="landing-nav-signin"
+            >
               Sign in
             </a>
             <a href="#cta" className="landing-nav-demo">

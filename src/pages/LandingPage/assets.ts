@@ -4,6 +4,7 @@ export const landingAssets = {
   heroDashboardV2: "/landing/hero-dashboard-v2.png",
   heroDashboardFigma: "/landing/hero-dashboard-figma.png",
   askAstrydPrompt: "/landing/ask-astryd-prompt.png",
+  askAstrydVideo: "/landing/askastryd/ask-astryd.mp4",
   featureAskAstryd: "/landing/feature-ask-astryd.png",
   featureCrm: "/landing/feature-crm.png",
   featureFinance: "/landing/feature-finance.png",

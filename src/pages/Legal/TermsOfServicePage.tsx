@@ -24,7 +24,6 @@ import {
   Clock,
   FileText,
   ChevronUp,
-  Building2,
   Shield,
 } from "lucide-react";
 import { LandingNavbar } from "../LandingPage/LandingNavbar";
@@ -103,12 +102,8 @@ export function TermsOfServicePage() {
       {/* Hero */}
       <div className="policy-content-top relative overflow-hidden border-b border-white/6">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#00C4CD]/20 bg-[#00C4CD]/10 px-3 py-1 text-xs font-medium text-[#00C4CD] mb-4">
-            <Building2 className="h-3.5 w-3.5" />
-            ResearchPort LLC dba Astryd
-          </div>
           <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Website Terms of Service
+            Terms of Service
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-[#8FA8C8] leading-relaxed">
             Please read these Terms carefully before accessing or using the Astryd website located at astryd.ai.

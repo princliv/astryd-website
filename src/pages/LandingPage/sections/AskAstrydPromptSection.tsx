@@ -20,10 +20,13 @@ export function AskAstrydPromptSection() {
           </Reveal>
 
           <Reveal y={24} className="ask-astryd-prompt-visual">
-            <img
+            <video
               className="h-auto w-full rounded-[12px] object-cover sm:rounded-[16px] lg:rounded-[20px]"
-              src={landingAssets.askAstrydPrompt}
-              alt="Ask Astryd AI prompt preview"
+              src={landingAssets.askAstrydVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
             />
           </Reveal>
         </div>

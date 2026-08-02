@@ -48,15 +48,56 @@ export function CTASection() {
   const [region, setRegion] = useState("");
   const [describe, setDescribe] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !company || !region || !describe) return;
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const webhookUrl =
+      import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL ||
+      "https://script.google.com/macros/s/AKfycbxHgIbY9cqqe3ctAIg1E-i5K2XHZDQeaAG2aAmFu7Tr5HckGDE_l7fem9fxxBdcv1Pk/exec";
+
+    const payload = {
+      name,
+      email,
+      company,
+      phone,
+      region,
+      describe,
+      source: "Astryd Website CTA",
+      timestamp: new Date().toISOString(),
+    };
+
+    try {
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+      } else {
+        console.log("Form payload (add VITE_GOOGLE_SHEET_WEBHOOK_URL to .env to enable live Sheet sync):", payload);
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Error submitting lead:", err);
+      setSubmitError("Something went wrong submitting your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
     setSubmitted(false);
+    setSubmitError(null);
     setName("");
     setEmail("");
     setCompany("");
@@ -269,16 +310,36 @@ export function CTASection() {
                     />
                   </div>
 
+                  {submitError && (
+                    <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-center font-['Inter'] text-[12px] text-red-400">
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className={cn(
                       "mt-1 flex h-12 w-full cursor-pointer items-center justify-center gap-2",
                       "rounded-full bg-[#00C4CD] font-['Inter'] text-[14px] font-semibold text-white",
-                      "shadow-none transition-all hover:-translate-y-0.5 hover:brightness-110"
+                      "shadow-none transition-all hover:-translate-y-0.5 hover:brightness-110",
+                      isSubmitting && "opacity-70 cursor-not-allowed"
                     )}
                   >
-                    Submit demo request
-                    <ArrowRight className="h-4 w-4" />
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="h-4 w-4 animate-spin text-white" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Submitting...
+                      </span>
+                    ) : (
+                      <>
+                        Submit demo request
+                        <ArrowRight className="h-4 w-4" />
+                      </>
+                    )}
                   </button>
 
                   <p className="text-center font-['Inter'] text-[11px] text-[#4A6480]">
