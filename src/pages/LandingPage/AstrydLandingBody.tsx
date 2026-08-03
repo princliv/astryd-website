@@ -4,7 +4,6 @@ import { FeaturesSection } from "./sections/FeaturesSection";
 import { AskAstrydPromptSection } from "./sections/AskAstrydPromptSection";
 import { WhoUsesSection } from "./sections/WhoUsesSection";
 import { CTASection } from "./sections/CTASection";
-import { FooterSection } from "./sections/FooterSection";
 
 export default function AstrydLandingBody() {
   return (
@@ -15,7 +14,6 @@ export default function AstrydLandingBody() {
       <AskAstrydPromptSection />
       <WhoUsesSection />
       <CTASection />
-      <FooterSection />
     </div>
   );
 }

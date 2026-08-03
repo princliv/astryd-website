@@ -155,15 +155,6 @@ export function CTASection() {
               ))}
             </ul>
 
-            <p className="mt-8 font-['Inter'] text-[12px] text-[#4A6480]">
-              Questions?{" "}
-              <a
-                href="mailto:customersupport@astryd.ai"
-                className="text-[#00C4CD] transition-opacity hover:opacity-90"
-              >
-                customersupport@astryd.ai
-              </a>
-            </p>
           </div>
 
           {/* Right — form card */}
