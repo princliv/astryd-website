@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, CalendarDays, Plug2, LineChart } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SectionShell } from "../motion/SectionShell";
 import { cn } from "@/lib/utils";
 
@@ -11,24 +11,6 @@ const US_STATES = [
   "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
   "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
-];
-
-const BENEFITS = [
-  {
-    icon: CalendarDays,
-    title: "Custom platform tour",
-    desc: "A 1-on-1 walkthrough tailored to your industry and team size.",
-  },
-  {
-    icon: Plug2,
-    title: "Integration assessment",
-    desc: "See how Astryd syncs with your POS, banks, and existing tools.",
-  },
-  {
-    icon: LineChart,
-    title: "ROI & pricing estimate",
-    desc: "Get a clear impact estimate and a plan that fits your growth stage.",
-  },
 ];
 
 const fieldClass = cn(
@@ -117,8 +99,8 @@ export function CTASection() {
       />
 
       <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 pb-14 sm:pb-16 lg:pb-20">
-        <div className="mx-auto grid max-w-[1200px] 2xl:max-w-[1400px] grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
-          {/* Left — copy + benefits */}
+        <div className="mx-auto grid max-w-[1200px] 2xl:max-w-[1400px] grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
+          {/* Left — copy */}
           <div className="flex flex-col justify-center lg:col-span-5">
             <span className="mb-3 block font-['Inter'] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00C4CD] sm:text-[12px]">
               Book a demo
@@ -129,32 +111,20 @@ export function CTASection() {
               <span className="text-[#00C4CD]">one dashboard?</span>
             </h2>
 
-            <p className="mb-8 max-w-[460px] font-['Inter'] text-[14px] font-normal leading-relaxed text-[#8FA8C8] sm:text-[15px] md:text-[16px]">
+            <p className="mb-6 max-w-[460px] font-['Inter'] text-[14px] font-normal leading-relaxed text-[#8FA8C8] sm:text-[15px] md:text-[16px]">
               See how Astryd unifies CRM, finance, inventory, and workforce — with Ask
               Astryd answering questions from your live data.
             </p>
 
-            <ul className="flex flex-col gap-4">
-              {BENEFITS.map(({ icon: Icon, title, desc }) => (
-                <li
-                  key={title}
-                  className="flex items-start gap-3.5 rounded-2xl border border-white/[0.06] bg-white/[0.03] px-4 py-3.5"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#00C4CD]/12">
-                    <Icon className="h-5 w-5 text-[#00C4CD]" strokeWidth={2} />
-                  </div>
-                  <div className="min-w-0 pt-0.5">
-                    <h4 className="font-['Inter'] text-[14px] font-semibold text-white">
-                      {title}
-                    </h4>
-                    <p className="mt-0.5 font-['Inter'] text-[12px] leading-relaxed text-[#8FA8C8] sm:text-[13px]">
-                      {desc}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
+            <p className="font-['Inter'] text-[12px] text-[#4A6480]">
+              Questions?{" "}
+              <a
+                href="mailto:customersupport@astryd.ai"
+                className="text-[#00C4CD] transition-opacity hover:opacity-90"
+              >
+                customersupport@astryd.ai
+              </a>
+            </p>
           </div>
 
           {/* Right — form card */}

@@ -305,11 +305,183 @@
   color: transparent;
 }
 
-/* Source screenshot is 1502x1304 — this ratio (width / half-height) crops
-   the frame to exactly the top half of the image, regardless of rendered width. */
+/* ═══════════════════════════════════════════════════════════
+   HERO — Figma 1728 spacing (node 1291:903)
+   eyebrow y=248 · title 309 · sub 494 · CTAs 601 · dash 752
+   Dashboard mask 1414×853 with bottom fade (1302:29701)
+   ═══════════════════════════════════════════════════════════ */
+.hero-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-copy {
+  width: 100%;
+  max-width: 1069px;
+}
+
+.hero-eyebrow {
+  display: block;
+  margin: 0 0 36px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #00c4cd;
+}
+
+@media (min-width: 640px) {
+  .hero-eyebrow {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-eyebrow {
+    /* Figma: 24px, gap to title = 309 − (248+25) = 36 */
+    font-size: 24px;
+    margin-bottom: 36px;
+  }
+}
+
+.hero-title {
+  margin: 0 0 36px;
+  max-width: 1069px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.75rem, 1.1rem + 2.4vw, 4rem); /* → 64px */
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    /* Figma: 64px, box h=149 (~2 lines), gap to sub = 494 − 458 = 36 */
+    font-size: 64px;
+    line-height: normal;
+    margin-bottom: 36px;
+  }
+}
+
+.hero-subcopy {
+  margin: 0 0 15px;
+  max-width: 806px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+  color: #8fa8c8;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .hero-subcopy {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-subcopy {
+    /* Figma: 24px, h=92; gap to CTAs = 601 − 586 = 15 */
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  /* Figma: CTAs → dashboard = 752 − 641 = 111 */
+  margin: 0 0 64px;
+}
+
+@media (min-width: 640px) {
+  .hero-cta-row {
+    flex-direction: row;
+    max-width: none;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-cta-row {
+    margin-bottom: 111px;
+  }
+}
+
+.hero-cta-demo {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .hero-cta-demo {
+    width: auto;
+    min-width: 155px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0 18px;
+    font-size: 20px;
+  }
+}
+
+/* Figma mask group 1414×853 — bottom fade baked into export + CSS mask */
 .hero-dashboard-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1414px;
+  aspect-ratio: 1414 / 853;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-  aspect-ratio: 1502 / 652;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgba(0, 0, 0, 0.55) 78%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .hero-dashboard-frame {
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-dashboard-frame {
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.hero-dashboard-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  pointer-events: none;
 }
 
 .section-sub {
@@ -374,7 +546,9 @@
    otherwise touches the scroll position.
    ═══════════════════════════════════════════════════════════ */
 .snap-scroll-root {
-  --landing-nav-safe-space: 80px;
+  /* Figma: nav top inset (~12–37px) + pill height */
+  --landing-nav-safe-space: 86px;
+  --landing-page-inset: 16px;
   height: 100dvh;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
@@ -385,15 +559,42 @@
   padding-top: var(--landing-nav-safe-space);
 }
 
+/* Hero uses Figma absolute Y (eyebrow at 248) — must win over shared safe-space */
+.landing-section-content.hero-section-content {
+  padding-top: 120px;
+  padding-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .landing-section-content.hero-section-content {
+    padding-top: 160px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-section-content.hero-section-content {
+    padding-top: 248px;
+  }
+}
+
 @media (min-width: 640px) {
   .snap-scroll-root {
-    --landing-nav-safe-space: 92px;
+    --landing-nav-safe-space: 100px;
+    --landing-page-inset: 24px;
   }
 }
 
 @media (min-width: 1024px) {
   .snap-scroll-root {
-    --landing-nav-safe-space: 112px;
+    /* Figma 1728: bar y=37 + h=97 → content clears ~134px */
+    --landing-nav-safe-space: 134px;
+    --landing-page-inset: 39px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .snap-scroll-root {
+    --landing-page-inset: 42px;
   }
 }
 
@@ -553,19 +754,19 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 12px 16px 0;
+  padding: 12px var(--landing-page-inset, 16px) 0;
 }
 
 @media (min-width: 640px) {
   .landing-nav-inner {
-    padding: 16px 24px 0;
+    padding: 16px var(--landing-page-inset, 24px) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-nav-inner {
-    /* Keep bar centered with side insets */
-    padding: 20px 42px 0;
+    /* Figma: bar inset x=42, top=37 */
+    padding: 37px var(--landing-page-inset, 42px) 0;
   }
 }
 
@@ -590,17 +791,18 @@
 
 @media (min-width: 640px) {
   .landing-nav-bar {
-    min-height: 58px;
-    padding: 10px 20px;
-    border-radius: 18px;
+    min-height: 64px;
+    padding: 12px 22px;
+    border-radius: 20px;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-nav-bar {
-    min-height: 64px;
-    padding: 10px 28px;
-    border-radius: 20px;
+    /* Figma: h=97, r=25 */
+    min-height: 97px;
+    padding: 0 36px;
+    border-radius: 25px;
   }
 }
 
@@ -681,7 +883,7 @@
   .landing-nav-signin,
   .landing-nav-demo {
     height: 38px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 12px;
   }
 
@@ -699,8 +901,10 @@
 @media (min-width: 1024px) {
   .landing-nav-signin,
   .landing-nav-demo {
+    /* Figma: 109×40 / 155×40, text 20px */
     height: 40px;
-    font-size: 16px;
+    font-size: 20px;
+    border-radius: 12px;
   }
 
   .landing-nav-signin {
@@ -757,8 +961,33 @@
 
 @media (min-width: 1024px) {
   .landing-cta-primary {
+    /* Figma Book a demo: 155×40, 20px */
     font-size: 20px;
-    min-height: 48px;
+    min-width: 155px;
+    min-height: 40px;
+    height: 40px;
+    padding: 0 18px;
+  }
+}
+
+.landing-cta-contact {
+  color: #00c4cd !important;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.landing-cta-contact:hover {
+  opacity: 0.85;
+}
+
+@media (min-width: 1024px) {
+  .landing-cta-contact {
+    font-size: 20px;
   }
 }
 
@@ -1235,7 +1464,85 @@
 
 /* ═══════════════════════════════════════════════════════════
    FEATURES CAROUSEL — 1 → 2 → 3 → 4 cards by breakpoint
+   Chrome (arrows/dots) wraps the carousel; card flex-basis untouched.
+   Carousel track is full-bleed (0 side padding) while scrolling.
    ═══════════════════════════════════════════════════════════ */
+.features-section-content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.features-carousel-shell {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.features-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  min-height: 32px;
+  /* controls can sit at the edge; track itself stays flush */
+  padding-inline: 0;
+}
+
+@media (min-width: 1024px) {
+  .features-carousel-controls {
+    /* Figma: arrows near page edges, dots centered */
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 36px;
+  }
+}
+
+.features-carousel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.features-carousel-arrow:hover {
+  color: #00c4cd;
+}
+
+.features-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 32px;
+}
+
+.features-carousel-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.features-carousel-dot--active {
+  width: 24px;
+  background: #00c4cd;
+}
+
 .features-carousel {
   display: flex;
   width: 100%;
@@ -1244,10 +1551,17 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  scroll-behavior: auto; /* GSAP owns programmatic slides; keep native drag free */
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  /* Start/end inset so first cards have a side gap; scrolls away while moving */
+  padding: 0 16px 4px;
+  margin: 0;
+  scroll-padding-inline: 16px;
+  will-change: scroll-position;
 }
 
 .features-carousel::-webkit-scrollbar {
@@ -1257,18 +1571,32 @@
 @media (min-width: 640px) {
   .features-carousel {
     gap: 14px;
+    padding-inline: 24px;
+    scroll-padding-inline: 24px;
   }
 }
 
 @media (min-width: 768px) {
   .features-carousel {
     gap: 16px;
+    padding-inline: 32px;
+    scroll-padding-inline: 32px;
   }
 }
 
 @media (min-width: 1024px) {
   .features-carousel {
-    gap: 18px;
+    /* Figma: ~38px gutters between 525px cards */
+    gap: 38px;
+    padding-inline: 39px;
+    scroll-padding-inline: 39px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .features-carousel {
+    padding-inline: 42px;
+    scroll-padding-inline: 42px;
   }
 }
 
@@ -1280,6 +1608,7 @@
   /* ~1.15 cards visible on phone so next card peeks */
   flex: 0 0 min(280px, calc(100% - 1.25rem));
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 @media (min-width: 640px) {
@@ -1298,21 +1627,21 @@
 
 @media (min-width: 900px) {
   .features-card {
-    /* 3 visible */
+    /* 3 visible — matches Figma (525×3 + gutters) */
     flex-basis: calc((100% - 32px) / 3);
   }
 }
 
 @media (min-width: 1024px) {
   .features-card {
-    /* 4 visible */
-    flex-basis: calc((100% - 54px) / 4);
+    /* Figma MacBook: 3 cards at a time (not 4) */
+    flex-basis: calc((100% - 76px) / 3);
   }
 }
 
 @media (min-width: 1536px) {
   .features-card {
-    flex-basis: calc((100% - 54px) / 4);
+    flex-basis: calc((100% - 76px) / 3);
     gap: 14px;
   }
 }
@@ -1428,15 +1757,19 @@
 
 @media (min-width: 1024px) {
   .ask-astryd-prompt-layout {
-    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.4fr);
-    gap: 40px 48px;
+    /* Figma: copy ~40% / visual ~60%, column gap ~80px+ */
+    grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.45fr);
+    gap: 48px 64px;
   }
 }
 
 @media (min-width: 1440px) {
   .ask-astryd-prompt-layout {
-    grid-template-columns: minmax(280px, 425px) minmax(0, 1fr);
-    gap: 48px 64px;
+    /* Figma: copy w=425–522, visual 884, gap ≈ (687-158-522) ≈ 7–80px depending on copy width */
+    grid-template-columns: minmax(280px, 522px) minmax(0, 884px);
+    justify-content: space-between;
+    gap: 48px 80px;
+    max-width: 1486px;
   }
 }
 
@@ -1483,16 +1816,112 @@
   }
 }
 
+/* At lg+ each slot's rest width is roughly (row width) / 5. These heights
+   are set to ~2x that width so a single-image slot reads as a 1:2 portrait,
+   and — since two 1:1 squares stacked sum to the same total height — the
+   Fitness/Retail stacked slot's two squares fall out correctly for free. */
 @media (min-width: 1024px) {
   .who-uses-card {
-    min-height: 300px;
-    height: 340px;
+    min-height: 320px;
+    height: 360px;
   }
 }
 
 @media (min-width: 1440px) {
   .who-uses-card {
-    min-height: 340px;
-    height: 364px;
+    min-height: 440px;
+    height: 480px;
+  }
+}
+
+/* Below lg, a stacked slot (e.g. Boutique Fitness + Retail Stores) unwraps so
+   its two cards behave like ordinary standalone grid cells. */
+.who-uses-stack {
+  display: contents;
+}
+
+/* Hover-expand accordion — desktop only (lg+), where hover is reliable */
+@media (min-width: 1024px) {
+  .who-uses-accordion {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .who-uses-card {
+    flex: 1 1 0%;
+    min-width: 64px;
+    transition: flex-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .who-uses-accordion:hover .who-uses-card {
+    flex-grow: 1;
+  }
+
+  /* Equal specificity to the rule above — declared later, so it wins for the
+     actually-hovered card while siblings still shrink via the rule above. */
+  .who-uses-accordion .who-uses-card:hover {
+    flex-grow: 5;
+  }
+
+  .who-uses-card-panel {
+    opacity: 0;
+    transition: opacity 0.35s ease 0.1s;
+  }
+
+  /* Direct-child combinator — the stacked slot wrapper also carries the
+     .who-uses-card class, and its :hover state bubbles up from either
+     sub-card; a descendant selector here would incorrectly reveal both
+     sub-cards' panels whichever one is actually hovered. */
+  .who-uses-card:hover > .who-uses-card-panel {
+    opacity: 1;
+  }
+
+  .who-uses-card-label {
+    transition: opacity 0.25s ease;
+  }
+
+  /* Hide every collapsed strip's label once any card in the row is hovered —
+     the hovered card shows its full panel instead, and its now-narrow
+     siblings have no room to display their own label. */
+  .who-uses-accordion:hover .who-uses-card-label {
+    opacity: 0;
+  }
+
+  /* Stacked slot — one horizontal accordion "column" holding two cards on
+     top of each other, each running its own vertical grow/shrink accordion.
+     Gap matches the row's own gap (lg:gap-3) so the two cards read as
+     separate containers, spaced the same as the columns beside them. */
+  .who-uses-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .who-uses-substack-card {
+    flex: 1 1 0%;
+    min-height: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: flex-grow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .who-uses-stack:hover .who-uses-substack-card {
+    flex-grow: 1;
+  }
+
+  /* Same equal-specificity, source-order trick as the row-level accordion. */
+  .who-uses-stack .who-uses-substack-card:hover {
+    flex-grow: 4;
+  }
+
+  .who-uses-substack-card:hover > .who-uses-card-panel {
+    opacity: 1;
+  }
+}
+
+/* Row gap bumps to xl:gap-4 (16px) at this breakpoint — match it here too. */
+@media (min-width: 1280px) {
+  .who-uses-stack {
+    gap: 16px;
   }
 }
