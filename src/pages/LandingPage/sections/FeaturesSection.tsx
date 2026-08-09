@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionShell } from "../motion/SectionShell";
 import { Reveal } from "../motion/Reveal";
-import { gsap, EASE } from "../motion/gsap";
+import { gsap } from "../motion/gsap";
 import { landingAssets } from "../assets";
 
 const FEATURES = [
@@ -56,13 +56,15 @@ const FEATURES = [
   },
 ];
 
-const AUTO_SCROLL_MS = 3000;
-const SLIDE_DURATION = 0.85;
+const AUTO_SCROLL_MS = 4000;
+const SLIDE_DURATION = 1.15;
+const SLIDE_EASE = "power3.inOut";
 
 export function FeaturesSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
   const pausedRef = useRef(false);
+  const tweeningRef = useRef(false);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
   const slideToIndexRef = useRef<(index: number) => void>(() => {});
   const [activeIndex, setActiveIndex] = useState(0);
@@ -71,38 +73,104 @@ export function FeaturesSection() {
     const root = scrollRef.current;
     if (!root) return;
 
+    const getCards = () =>
+      Array.from(root.querySelectorAll<HTMLElement>("[data-feature-card]"));
+
+    /** Scroll offset that aligns a card with the track’s left content edge */
+    const getScrollLeftForIndex = (index: number) => {
+      const cards = getCards();
+      if (!cards.length) return 0;
+      const card = cards[Math.max(0, Math.min(index, cards.length - 1))];
+      const maxScroll = Math.max(0, root.scrollWidth - root.clientWidth);
+      const styles = window.getComputedStyle(root);
+      const padLeft = parseFloat(styles.paddingLeft) || 0;
+      const rootRect = root.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const delta = cardRect.left - rootRect.left - padLeft;
+      return Math.min(Math.max(0, root.scrollLeft + delta), maxScroll);
+    };
+
+    const getMaxScrollIndex = () => {
+      const cards = getCards();
+      if (cards.length <= 1) return 0;
+      const maxScroll = Math.max(0, root.scrollWidth - root.clientWidth);
+      if (maxScroll <= 1) return 0;
+
+      let maxIdx = 0;
+      for (let i = 0; i < cards.length; i++) {
+        if (getScrollLeftForIndex(i) <= maxScroll - 1) maxIdx = i;
+      }
+      return maxIdx;
+    };
+
+    const syncActiveFromScroll = () => {
+      if (tweeningRef.current) return;
+      const cards = getCards();
+      if (!cards.length) return;
+
+      const scrollLeft = root.scrollLeft;
+      let nearest = 0;
+      let nearestDist = Infinity;
+
+      for (let i = 0; i < cards.length; i++) {
+        const dist = Math.abs(getScrollLeftForIndex(i) - scrollLeft);
+        if (dist < nearestDist) {
+          nearestDist = dist;
+          nearest = i;
+        }
+      }
+
+      if (nearest !== indexRef.current) {
+        indexRef.current = nearest;
+        setActiveIndex(nearest);
+      }
+    };
+
     const slideToIndex = (index: number) => {
-      const cards = Array.from(
-        root.querySelectorAll<HTMLElement>("[data-feature-card]")
-      );
+      const cards = getCards();
       if (!cards.length) return;
 
       const clamped = Math.max(0, Math.min(index, cards.length - 1));
+      const target = getScrollLeftForIndex(clamped);
+      const from = root.scrollLeft;
+
       indexRef.current = clamped;
       setActiveIndex(clamped);
 
-      const card = cards[clamped];
-      const first = cards[0];
-      const maxScroll = Math.max(0, root.scrollWidth - root.clientWidth);
-      const left = Math.min(card.offsetLeft - first.offsetLeft, maxScroll);
+      // Already there — still update dots, skip tween
+      if (Math.abs(from - target) < 1) return;
 
+      // Tween via proxy — direct scrollLeft tweens often jump with no swipe
+      root.style.scrollSnapType = "none";
+      tweeningRef.current = true;
       tweenRef.current?.kill();
-      tweenRef.current = gsap.to(root, {
-        scrollLeft: left,
+
+      const proxy = { x: from };
+      tweenRef.current = gsap.to(proxy, {
+        x: target,
         duration: SLIDE_DURATION,
-        ease: EASE.enter,
+        ease: SLIDE_EASE,
         overwrite: true,
+        onUpdate: () => {
+          root.scrollLeft = proxy.x;
+        },
+        onComplete: () => {
+          root.scrollLeft = target;
+          tweeningRef.current = false;
+          root.style.scrollSnapType = "";
+        },
       });
     };
 
     slideToIndexRef.current = slideToIndex;
 
     const id = window.setInterval(() => {
-      if (pausedRef.current) return;
-      const cards = root.querySelectorAll("[data-feature-card]");
+      if (pausedRef.current || tweeningRef.current) return;
+      const cards = getCards();
       if (cards.length <= 1) return;
 
-      if (indexRef.current >= cards.length - 1) {
+      const maxIdx = getMaxScrollIndex();
+      if (indexRef.current >= maxIdx) {
         slideToIndex(0);
         return;
       }
@@ -110,9 +178,13 @@ export function FeaturesSection() {
       slideToIndex(indexRef.current + 1);
     }, AUTO_SCROLL_MS);
 
+    root.addEventListener("scroll", syncActiveFromScroll, { passive: true });
+
     return () => {
       window.clearInterval(id);
+      root.removeEventListener("scroll", syncActiveFromScroll);
       tweenRef.current?.kill();
+      tweeningRef.current = false;
     };
   }, []);
 
@@ -144,14 +216,12 @@ export function FeaturesSection() {
           </h2>
         </Reveal>
 
-        <div
-          className="features-carousel-shell"
-          onMouseEnter={pause}
-          onMouseLeave={resume}
-        >
+        <div className="features-carousel-shell">
           <div
             ref={scrollRef}
             className="features-carousel"
+            onMouseEnter={pause}
+            onMouseLeave={resume}
             onPointerDown={() => {
               pause();
               tweenRef.current?.kill();
