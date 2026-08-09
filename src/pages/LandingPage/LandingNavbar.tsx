@@ -34,14 +34,14 @@ export function LandingNavbar() {
             textClassName="text-[16px] sm:text-[18px] lg:text-[36px]"
           />
           <div className="landing-nav-actions">
-            <a
+            {/* <a
               href="https://dashboard.astryd-ai.com/login"
               target="_blank"
               rel="noopener noreferrer"
               className="landing-nav-signin"
             >
               Sign in
-            </a>
+            </a> */}
             <a href="#cta" className="landing-nav-demo">
               Book a demo
             </a>
