@@ -98,20 +98,20 @@ export function CTASection() {
         }}
       />
 
-      <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 pb-14 sm:pb-16 lg:pb-20">
-        <div className="mx-auto grid max-w-[1200px] 2xl:max-w-[1400px] grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10 xl:gap-12">
+      <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 pb-10 sm:pb-12 lg:pb-14">
+        <div className="mx-auto grid max-w-[1200px] 2xl:max-w-[1400px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           {/* Left — copy */}
           <div className="flex flex-col justify-center lg:col-span-5">
-            <span className="mb-3 block font-['Inter'] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00C4CD] sm:text-[12px]">
+            <span className="mb-2 block font-['Inter'] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00C4CD] sm:text-[12px]">
               Book a demo
             </span>
 
-            <h2 className="landing-display-title mb-4 text-white sm:mb-5">
+            <h2 className="landing-display-title mb-3 text-white sm:mb-4">
               Ready to run your business from{" "}
               <span className="text-[#00C4CD]">one dashboard?</span>
             </h2>
 
-            <p className="mb-6 max-w-[460px] font-['Inter'] text-[14px] font-normal leading-relaxed text-[#8FA8C8] sm:text-[15px] md:text-[16px]">
+            <p className="mb-4 max-w-[460px] font-['Inter'] text-[14px] font-normal leading-relaxed text-[#8FA8C8] sm:text-[15px] md:text-[16px]">
               See how Astryd unifies CRM, finance, inventory, and workforce — with Ask
               Astryd answering questions from your live data.
             </p>
@@ -132,7 +132,7 @@ export function CTASection() {
             <div
               className={cn(
                 "w-full max-w-[560px] 2xl:max-w-[640px] overflow-hidden rounded-xl sm:rounded-2xl border border-white/10",
-                "bg-[rgba(255,255,255,0.04)] p-5 shadow-[0_24px_64px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-7 lg:p-8"
+                "bg-[rgba(255,255,255,0.04)] p-4 shadow-[0_24px_64px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-6 lg:p-7"
               )}
             >
               {submitted ? (

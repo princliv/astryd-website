@@ -323,7 +323,7 @@
 
 .hero-eyebrow {
   display: block;
-  margin: 0 0 36px;
+  margin: 0 0 24px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 13px;
@@ -340,14 +340,13 @@
 
 @media (min-width: 1024px) {
   .hero-eyebrow {
-    /* Figma: 24px, gap to title = 309 − (248+25) = 36 */
     font-size: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
   }
 }
 
 .hero-title {
-  margin: 0 0 36px;
+  margin: 0 0 24px;
   max-width: 1069px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
@@ -360,10 +359,9 @@
 
 @media (min-width: 1024px) {
   .hero-title {
-    /* Figma: 64px, box h=149 (~2 lines), gap to sub = 494 − 458 = 36 */
     font-size: 64px;
     line-height: normal;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
   }
 }
 
@@ -387,9 +385,8 @@
 
 @media (min-width: 1024px) {
   .hero-subcopy {
-    /* Figma: 24px, h=92; gap to CTAs = 601 − 586 = 15 */
     font-size: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 24px;
   }
 }
 
@@ -401,8 +398,7 @@
   gap: 12px;
   width: 100%;
   max-width: 320px;
-  /* Figma: CTAs → dashboard = 752 − 641 = 111 */
-  margin: 0 0 64px;
+  margin: 0 0 44px;
 }
 
 @media (min-width: 640px) {
@@ -410,13 +406,13 @@
     flex-direction: row;
     max-width: none;
     gap: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 56px;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-cta-row {
-    margin-bottom: 111px;
+    margin-bottom: 76px;
   }
 }
 
@@ -546,8 +542,8 @@
    otherwise touches the scroll position.
    ═══════════════════════════════════════════════════════════ */
 .snap-scroll-root {
-  /* Figma: nav top inset (~12–37px) + pill height */
-  --landing-nav-safe-space: 86px;
+  /* Figma: nav top inset (~10–20px) + bar height */
+  --landing-nav-safe-space: 68px;
   --landing-page-inset: 16px;
   height: 100dvh;
   overflow-y: scroll;
@@ -559,35 +555,34 @@
   padding-top: var(--landing-nav-safe-space);
 }
 
-/* Hero uses Figma absolute Y (eyebrow at 248) — must win over shared safe-space */
+/* Hero uses adjusted Y padding to match reduced navbar height */
 .landing-section-content.hero-section-content {
-  padding-top: 120px;
+  padding-top: 100px;
   padding-bottom: 0;
 }
 
 @media (min-width: 640px) {
   .landing-section-content.hero-section-content {
-    padding-top: 160px;
+    padding-top: 136px;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-section-content.hero-section-content {
-    padding-top: 248px;
+    padding-top: 202px;
   }
 }
 
 @media (min-width: 640px) {
   .snap-scroll-root {
-    --landing-nav-safe-space: 100px;
+    --landing-nav-safe-space: 76px;
     --landing-page-inset: 24px;
   }
 }
 
 @media (min-width: 1024px) {
   .snap-scroll-root {
-    /* Figma 1728: bar y=37 + h=97 → content clears ~134px */
-    --landing-nav-safe-space: 134px;
+    --landing-nav-safe-space: 88px;
     --landing-page-inset: 39px;
   }
 }
@@ -754,19 +749,18 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 12px var(--landing-page-inset, 16px) 0;
+  padding: 10px var(--landing-page-inset, 16px) 0;
 }
 
 @media (min-width: 640px) {
   .landing-nav-inner {
-    padding: 16px var(--landing-page-inset, 24px) 0;
+    padding: 12px var(--landing-page-inset, 24px) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-nav-inner {
-    /* Figma: bar inset x=42, top=37 */
-    padding: 37px var(--landing-page-inset, 42px) 0;
+    padding: 20px var(--landing-page-inset, 42px) 0;
   }
 }
 
@@ -780,9 +774,9 @@
   max-width: 1644px; /* Figma bar width — keeps glass pill centered */
   margin-left: auto;
   margin-right: auto;
-  min-height: 54px;
-  padding: 10px 16px;
-  border-radius: 16px;
+  min-height: 48px;
+  padding: 8px 16px;
+  border-radius: 14px;
   background: rgba(74, 100, 128, 0.2);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -791,18 +785,17 @@
 
 @media (min-width: 640px) {
   .landing-nav-bar {
-    min-height: 64px;
-    padding: 12px 22px;
-    border-radius: 20px;
+    min-height: 56px;
+    padding: 10px 20px;
+    border-radius: 16px;
   }
 }
 
 @media (min-width: 1024px) {
   .landing-nav-bar {
-    /* Figma: h=97, r=25 */
-    min-height: 97px;
-    padding: 0 36px;
-    border-radius: 25px;
+    min-height: 68px;
+    padding: 0 28px;
+    border-radius: 20px;
   }
 }
 
@@ -1757,20 +1750,30 @@
 
 @media (min-width: 1024px) {
   .ask-astryd-prompt-layout {
-    /* Figma: copy ~40% / visual ~60%, column gap ~80px+ */
-    grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.45fr);
-    gap: 48px 64px;
+    /* Figma 1728: copy x=158, visual x=687 w=884; content width 1412 */
+    grid-template-columns: minmax(220px, 522px) minmax(0, 884px);
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px 80px;
+    width: 100%;
+    max-width: 1412px;
   }
 }
 
 @media (min-width: 1440px) {
   .ask-astryd-prompt-layout {
-    /* Figma: copy w=425–522, visual 884, gap ≈ (687-158-522) ≈ 7–80px depending on copy width */
     grid-template-columns: minmax(280px, 522px) minmax(0, 884px);
-    justify-content: space-between;
     gap: 48px 80px;
-    max-width: 1486px;
+    max-width: 1412px;
   }
+}
+
+.ask-astryd-section-content {
+  box-sizing: border-box;
+}
+
+.who-uses-section-content {
+  box-sizing: border-box;
 }
 
 .ask-astryd-prompt-copy {

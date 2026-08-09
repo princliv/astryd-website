@@ -143,7 +143,7 @@ export function WhoUsesSection() {
       className="section-dark who-uses-section-bg section-figma-bg relative overflow-hidden"
       snap={false}
     >
-      <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-[39px] xl:px-[42px] pb-12 sm:pb-16 lg:pb-20">
+      <div className="landing-section-content who-uses-section-content relative z-10 w-full px-4 sm:px-5 md:px-6 lg:px-6 xl:px-8 pb-12 sm:pb-16 lg:pb-20">
         {/* Header spacing only — bento/accordion layout frozen */}
         <Reveal y={20} className="mx-auto mb-8 sm:mb-10 lg:mb-[80px] max-w-[1184px] 2xl:max-w-[1400px] text-center">
           <h2 className="landing-display-title text-[#E8F0F8]">
@@ -155,7 +155,7 @@ export function WhoUsesSection() {
           </p>
         </Reveal>
 
-        <div className="who-uses-accordion landing-content-wide mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:flex lg:gap-3 xl:gap-4">
+        <div className="who-uses-accordion mx-auto grid w-full grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:flex lg:gap-3 xl:gap-4">
           {SLOTS.map((slot) => {
             if (!Array.isArray(slot)) {
               const industry = slot;

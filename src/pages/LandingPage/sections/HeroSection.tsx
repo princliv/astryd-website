@@ -28,9 +28,15 @@ export function HeroSection() {
           </p>
 
           <div className="hero-cta-row">
-            <a href="#cta" className="landing-cta-contact">
-              Contact Sales
-            </a>
+            <div className="inline-flex items-center gap-2">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00C4CD] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00C4CD]" />
+              </span>
+              <span className="whitespace-nowrap font-['Inter'] text-[16px] font-medium text-white sm:text-[18px] lg:text-[20px]">
+                Now accepting pilot cohort
+              </span>
+            </div>
             <a href="#cta" className="landing-cta-primary hero-cta-demo">
               Book a demo
             </a>
