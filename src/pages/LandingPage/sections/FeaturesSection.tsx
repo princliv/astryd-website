@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionShell } from "../motion/SectionShell";
 import { Reveal } from "../motion/Reveal";
 import { gsap, EASE } from "../motion/gsap";
@@ -63,20 +64,22 @@ export function FeaturesSection() {
   const indexRef = useRef(0);
   const pausedRef = useRef(false);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
+  const slideToIndexRef = useRef<(index: number) => void>(() => {});
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const root = scrollRef.current;
     if (!root) return;
 
-    const getCards = () =>
-      Array.from(root.querySelectorAll<HTMLElement>("[data-feature-card]"));
-
     const slideToIndex = (index: number) => {
-      const cards = getCards();
+      const cards = Array.from(
+        root.querySelectorAll<HTMLElement>("[data-feature-card]")
+      );
       if (!cards.length) return;
 
       const clamped = Math.max(0, Math.min(index, cards.length - 1));
       indexRef.current = clamped;
+      setActiveIndex(clamped);
 
       const card = cards[clamped];
       const first = cards[0];
@@ -92,9 +95,11 @@ export function FeaturesSection() {
       });
     };
 
+    slideToIndexRef.current = slideToIndex;
+
     const id = window.setInterval(() => {
       if (pausedRef.current) return;
-      const cards = getCards();
+      const cards = root.querySelectorAll("[data-feature-card]");
       if (cards.length <= 1) return;
 
       if (indexRef.current >= cards.length - 1) {
@@ -111,61 +116,130 @@ export function FeaturesSection() {
     };
   }, []);
 
+  const pause = () => {
+    pausedRef.current = true;
+  };
+  const resume = () => {
+    pausedRef.current = false;
+  };
+
+  const slideToIndex = (index: number) => {
+    slideToIndexRef.current(index);
+  };
+
   return (
     <SectionShell
       id="features"
       className="section-dark features-section-bg section-figma-bg relative overflow-hidden"
       snap={false}
     >
-      <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 pb-12 sm:pb-16 lg:pb-20">
-        <Reveal y={20} className="landing-content-wide mx-auto mb-8 sm:mb-10 lg:mb-12 text-center">
-          <h2 className="landing-display-title text-white">
+      <div className="landing-section-content features-section-content relative z-10 w-full pb-12 sm:pb-16 lg:pb-20">
+        {/* Headline keeps inset; carousel is full-bleed (0 side padding) */}
+        <Reveal
+          y={20}
+          className="landing-content-wide mx-auto mb-8 px-4 text-center sm:mb-10 sm:px-6 md:px-8 lg:mb-[57px] lg:px-[39px] xl:px-[42px]"
+        >
+          <h2 className="landing-display-title mx-auto max-w-[1501px] text-white">
             One login. One data set. Full automation.
           </h2>
         </Reveal>
 
         <div
-          ref={scrollRef}
-          className="features-carousel"
-          onMouseEnter={() => {
-            pausedRef.current = true;
-          }}
-          onMouseLeave={() => {
-            pausedRef.current = false;
-          }}
-          onPointerDown={() => {
-            pausedRef.current = true;
-            tweenRef.current?.kill();
-          }}
-          onPointerUp={() => {
-            pausedRef.current = false;
-          }}
-          onPointerCancel={() => {
-            pausedRef.current = false;
-          }}
+          className="features-carousel-shell"
+          onMouseEnter={pause}
+          onMouseLeave={resume}
         >
-          {FEATURES.map((item) => (
-            <article key={item.title} data-feature-card className="features-card">
-              <div className="features-card-media">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={
-                    item.image === landingAssets.features.payroll
-                      ? "h-full w-full object-cover object-[center_20%]"
-                      : "h-full w-full object-cover"
-                  }
-                  loading="lazy"
-                />
-              </div>
+          <div
+            ref={scrollRef}
+            className="features-carousel"
+            onPointerDown={() => {
+              pause();
+              tweenRef.current?.kill();
+            }}
+            onPointerUp={resume}
+            onPointerCancel={resume}
+          >
+            {FEATURES.map((item) => (
+              <article
+                key={item.title}
+                data-feature-card
+                className="features-card"
+              >
+                <div className="features-card-media">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={
+                      item.image === landingAssets.features.payroll
+                        ? "h-full w-full object-cover object-[center_20%]"
+                        : "h-full w-full object-cover"
+                    }
+                    loading="lazy"
+                  />
+                </div>
 
-              <div className="features-card-copy">
-                <h3 className="features-card-title">{item.title}</h3>
-                <p className="features-card-meta">{item.meta}</p>
-                <p className="features-card-desc">{item.desc}</p>
-              </div>
-            </article>
-          ))}
+                <div className="features-card-copy">
+                  <h3 className="features-card-title">{item.title}</h3>
+                  <p className="features-card-meta">{item.meta}</p>
+                  <p className="features-card-desc">{item.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Figma: chevrons flank pagination at y=2579, not mid-cards */}
+          <div className="features-carousel-controls">
+            <button
+              type="button"
+              className="features-carousel-arrow features-carousel-arrow--prev"
+              aria-label="Previous feature"
+              onClick={() => {
+                pause();
+                slideToIndex(Math.max(0, indexRef.current - 1));
+              }}
+            >
+              <ChevronLeft className="h-[29px] w-[29px]" strokeWidth={1.5} />
+            </button>
+
+            <div
+              className="features-carousel-dots"
+              role="tablist"
+              aria-label="Feature slides"
+            >
+              {FEATURES.map((item, i) => (
+                <button
+                  key={item.title}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === activeIndex}
+                  aria-label={`Go to ${item.title}`}
+                  className={
+                    i === activeIndex
+                      ? "features-carousel-dot features-carousel-dot--active"
+                      : "features-carousel-dot"
+                  }
+                  onClick={() => {
+                    pause();
+                    slideToIndex(i);
+                  }}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className="features-carousel-arrow features-carousel-arrow--next"
+              aria-label="Next feature"
+              onClick={() => {
+                pause();
+                slideToIndex(
+                  Math.min(FEATURES.length - 1, indexRef.current + 1)
+                );
+              }}
+            >
+              <ChevronRight className="h-[29px] w-[29px]" strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </div>
     </SectionShell>
