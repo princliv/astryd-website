@@ -1,46 +1,37 @@
 import { Link } from "react-router-dom";
-import { Triangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type AstrydBrandMarkProps = {
   className?: string;
   href?: string;
   onNavigate?: () => void;
+  /** Height classes for the full logo image (icon + wordmark). */
+  imgClassName?: string;
+  /** @deprecated Kept for call-site compat; ignored — logo image includes wordmark. */
   iconClassName?: string;
+  /** @deprecated Kept for call-site compat; ignored — logo image includes wordmark. */
   textClassName?: string;
 };
 
 /**
- * Shared Astryd brand: cyan triangle + "astryd" wordmark.
+ * Shared Astryd brand: thick triangle + "astryd" wordmark from /logo.png.
  */
 export function AstrydBrandMark({
   className,
   href,
   onNavigate,
-  iconClassName = "h-[18px] w-[18px]",
-  textClassName = "text-[20px]",
+  imgClassName = "h-5 sm:h-6 lg:h-8 w-auto",
 }: AstrydBrandMarkProps) {
   const content = (
-    <>
-      <Triangle
-        className={cn(iconClassName, "text-[#00C4CD] shrink-0")}
-        strokeWidth={2.25}
-        fill="currentColor"
-        fillOpacity={0}
-      />
-      <span
-        className={cn(
-          "font-bold leading-none tracking-tight text-[#00C4CD]",
-          textClassName
-        )}
-        style={{ fontFamily: "Inter, sans-serif" }}
-      >
-        astryd
-      </span>
-    </>
+    <img
+      src="/logo.png"
+      alt="astryd"
+      className={cn("w-auto shrink-0 object-contain", imgClassName)}
+      decoding="async"
+    />
   );
 
-  const wrapperClass = cn("inline-flex items-center gap-2", className);
+  const wrapperClass = cn("inline-flex items-center", className);
 
   if (href) {
     return (

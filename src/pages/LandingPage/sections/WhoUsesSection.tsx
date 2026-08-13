@@ -96,20 +96,12 @@ function CardBody({ industry }: { industry: Industry }) {
 
       {/* Collapsed-strip label — visible at rest, fades out on lg+ when any card in the row is hovered */}
       <div className="who-uses-card-label absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-4 xl:p-5 flex flex-col gap-1 sm:gap-1.5">
-        <h3
-          className={`font-['Inter'] font-semibold leading-tight text-white ${
-            industry.wide
-              ? "text-[18px] sm:text-[20px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
-              : "text-[16px] sm:text-[18px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]"
-          }`}
-        >
+        <h3 className="landing-section-sub font-semibold leading-tight text-white">
           {industry.title}
         </h3>
         <p
-          className={`font-['Inter'] font-normal leading-relaxed text-[#E8F0F8] line-clamp-3 sm:line-clamp-4 lg:hidden ${
-            industry.wide
-              ? "text-[12px] sm:text-[13px] max-w-[611px]"
-              : "text-[11px] sm:text-[12px] max-w-[334px]"
+          className={`landing-body leading-relaxed text-[#E8F0F8] line-clamp-3 sm:line-clamp-4 lg:hidden ${
+            industry.wide ? "max-w-[611px]" : "max-w-[334px]"
           }`}
         >
           {industry.desc}
@@ -124,10 +116,10 @@ function CardBody({ industry }: { industry: Industry }) {
           </span>
         </div>
         <div className="flex flex-col gap-2 max-w-[440px]">
-          <h3 className="font-['Inter'] font-semibold leading-tight text-white text-[20px] xl:text-[24px] 2xl:text-[26px] whitespace-nowrap">
+          <h3 className="landing-section-sub font-semibold leading-tight text-white whitespace-nowrap">
             {industry.title}
           </h3>
-          <p className="font-['Inter'] font-normal leading-relaxed text-[#E8F0F8] text-[13px] xl:text-[15px] 2xl:text-[16px]">
+          <p className="landing-body leading-relaxed text-[#E8F0F8]">
             {industry.desc}
           </p>
         </div>
@@ -149,7 +141,7 @@ export function WhoUsesSection() {
           <h2 className="landing-display-title text-[#E8F0F8]">
             One platform. Every industry.
           </h2>
-          <p className="mt-4 sm:mt-5 lg:mt-[36px] mx-auto max-w-[60ch] lg:max-w-[1184px] font-['Inter'] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px] font-light leading-normal text-[#8FA8C8]">
+          <p className="landing-section-sub mt-4 sm:mt-5 lg:mt-[36px] mx-auto max-w-[60ch] lg:max-w-[1184px] font-light">
             From restaurants to retail, Astryd adapts to your business, unifying
             your operations no matter your industry.
           </p>

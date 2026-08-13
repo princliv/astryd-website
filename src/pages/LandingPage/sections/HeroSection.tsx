@@ -18,13 +18,14 @@ export function HeroSection() {
           <span className="hero-eyebrow">ONE UNIFIED ECOSYSTEM</span>
 
           <h1 className="hero-title">
-            Run your entire business from one{" "}
-            <span className="hero-gradient-text">intelligent dashboard.</span>
+            Run point of sale, payroll, and payments from{" "}
+            <span className="hero-gradient-text">one platform.</span>
           </h1>
 
           <p className="hero-subcopy">
-            No tab-switching, no manual reconciliation. Every event flows into
-            one real-time stream.
+            One platform means one login, one invoice, and one place where
+            everything already talks. Not an integration. One system, one login,
+            sales, hours, and deposits all in the same place
           </p>
 
           <div className="hero-cta-row">
@@ -33,7 +34,7 @@ export function HeroSection() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00C4CD] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00C4CD]" />
               </span>
-              <span className="whitespace-nowrap font-['Inter'] text-[16px] font-medium text-white sm:text-[18px] lg:text-[20px]">
+              <span className="whitespace-nowrap font-['Inter'] text-[14px] font-medium text-white sm:text-[16px] lg:text-[18px]">
                 Now accepting pilot cohort
               </span>
             </div>

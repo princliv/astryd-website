@@ -30,8 +30,7 @@ export function LandingNavbar() {
           <AstrydBrandMark
             href="/"
             className="landing-nav-logo"
-            iconClassName="h-5 w-5 sm:h-6 sm:w-6 lg:h-[34px] lg:w-[34px]"
-            textClassName="text-[16px] sm:text-[18px] lg:text-[26px]"
+            imgClassName="h-6 sm:h-7 lg:h-9 w-auto"
           />
           <div className="landing-nav-actions">
             {/* <a

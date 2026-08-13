@@ -16,8 +16,12 @@ export function FooterSection() {
       >
         <div className="landing-content-wide mx-auto">
           <div className="mb-8 sm:mb-10">
-            <AstrydBrandMark href="/" className="mb-4 scale-90 -ml-1" />
-            <p className="font-['Inter'] text-[13px] sm:text-[14px] leading-[1.7] text-[#4A6480] max-w-[300px]">
+            <AstrydBrandMark
+              href="/"
+              className="mb-4 -ml-1"
+              imgClassName="h-7 sm:h-8 w-auto"
+            />
+            <p className="font-['Inter'] text-[12px] sm:text-[13px] leading-[1.7] text-[#4A6480] max-w-[300px]">
               The native AI-first operating system uniting CRM, finance, inventory, payroll, and
               operations.
             </p>
