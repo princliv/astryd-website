@@ -151,11 +151,10 @@ export function WhoUsesSection() {
           {SLOTS.map((slot) => {
             if (!Array.isArray(slot)) {
               const industry = slot;
-              const smSpan = industry.wide ? "sm:col-span-2" : "sm:col-span-1";
               return (
                 <article
                   key={industry.id}
-                  className={`who-uses-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)] ${smSpan}`}
+                  className="who-uses-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
                 >
                   <CardBody industry={industry} />
                 </article>
@@ -167,7 +166,7 @@ export function WhoUsesSection() {
                 {slot.map((industry) => (
                   <article
                     key={industry.id}
-                    className="who-uses-substack-card sm:col-span-1 relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
+                    className="who-uses-substack-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
                   >
                     <CardBody industry={industry} />
                   </article>

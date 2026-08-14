@@ -1902,9 +1902,24 @@
 }
 
 /* Below lg, a stacked slot (e.g. Boutique Fitness + Retail Stores) unwraps so
-   its two cards behave like ordinary standalone grid cells. */
+   its two cards behave like ordinary standalone grid cells — same size as
+   every other card on mobile/tablet. */
 .who-uses-stack {
   display: contents;
+}
+
+@media (max-width: 1023px) {
+  .who-uses-substack-card {
+    min-height: 220px;
+    height: 240px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .who-uses-substack-card {
+    min-height: 260px;
+    height: 280px;
+  }
 }
 
 /* Hover-expand accordion — desktop only (lg+), where hover is reliable */
