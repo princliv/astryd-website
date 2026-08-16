@@ -18,7 +18,8 @@ export function HeroSection() {
           <span className="hero-eyebrow">ONE UNIFIED ECOSYSTEM</span>
 
           <h1 className="hero-title">
-            Run point of sale, payroll, and payments from{" "}
+            Run point of sale, payroll, and payments from
+            <br />
             <span className="hero-gradient-text">one platform.</span>
           </h1>
 

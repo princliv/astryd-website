@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { SectionShell } from "../motion/SectionShell";
 import { Reveal } from "../motion/Reveal";
 import { landingAssets } from "../assets";
@@ -96,7 +95,7 @@ function CardBody({ industry }: { industry: Industry }) {
 
       {/* Collapsed-strip label — visible at rest, fades out on lg+ when any card in the row is hovered */}
       <div className="who-uses-card-label absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-4 xl:p-5 flex flex-col gap-1 sm:gap-1.5">
-        <h3 className="landing-section-sub font-semibold leading-tight text-white">
+        <h3 className="features-card-title">
           {industry.title}
         </h3>
         <p
@@ -109,14 +108,9 @@ function CardBody({ industry }: { industry: Industry }) {
       </div>
 
       {/* Expanded panel — lg+ only, fades in on hover as the card grows */}
-      <div className="who-uses-card-panel hidden lg:flex absolute inset-0 flex-col justify-between p-5 xl:p-7 bg-gradient-to-t from-[#050B16]/95 via-[#050B16]/65 to-[#050B16]/15">
-        <div className="flex justify-end">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-sm">
-            <ArrowUpRight className="h-4 w-4" />
-          </span>
-        </div>
+      <div className="who-uses-card-panel hidden lg:flex absolute inset-0 flex-col justify-end p-5 xl:p-7 bg-gradient-to-t from-[#050B16]/95 via-[#050B16]/65 to-[#050B16]/15">
         <div className="flex flex-col gap-2 max-w-[440px]">
-          <h3 className="landing-section-sub font-semibold leading-tight text-white whitespace-nowrap">
+          <h3 className="landing-display-title text-white">
             {industry.title}
           </h3>
           <p className="landing-body leading-relaxed text-[#E8F0F8]">
