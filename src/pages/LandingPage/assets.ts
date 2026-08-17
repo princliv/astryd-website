@@ -2,7 +2,7 @@
 export const landingAssets = {
   heroDashboard: "/landing/hero-dashboard.png",
   heroDashboardV2: "/landing/hero-dashboard-v2.png",
-  heroDashboardFigma: "/landing/hero-dashboard-figma.png",
+  heroDashboardFigma: "/landing/astryd_hero_demo.png",
   askAstrydPrompt: "/landing/ask-astryd-prompt.png",
   askAstrydVideo: "/landing/askastryd/ask-astryd.mp4",
   featureAskAstryd: "/landing/feature-ask-astryd.png",

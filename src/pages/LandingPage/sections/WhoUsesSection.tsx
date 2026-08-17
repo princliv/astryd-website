@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { SectionShell } from "../motion/SectionShell";
 import { Reveal } from "../motion/Reveal";
 import { landingAssets } from "../assets";
@@ -96,20 +95,12 @@ function CardBody({ industry }: { industry: Industry }) {
 
       {/* Collapsed-strip label — visible at rest, fades out on lg+ when any card in the row is hovered */}
       <div className="who-uses-card-label absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-4 xl:p-5 flex flex-col gap-1 sm:gap-1.5">
-        <h3
-          className={`font-['Inter'] font-semibold leading-tight text-white ${
-            industry.wide
-              ? "text-[18px] sm:text-[20px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
-              : "text-[16px] sm:text-[18px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]"
-          }`}
-        >
+        <h3 className="features-card-title">
           {industry.title}
         </h3>
         <p
-          className={`font-['Inter'] font-normal leading-relaxed text-[#E8F0F8] line-clamp-3 sm:line-clamp-4 lg:hidden ${
-            industry.wide
-              ? "text-[12px] sm:text-[13px] max-w-[611px]"
-              : "text-[11px] sm:text-[12px] max-w-[334px]"
+          className={`landing-body leading-relaxed text-[#E8F0F8] line-clamp-3 sm:line-clamp-4 lg:hidden ${
+            industry.wide ? "max-w-[611px]" : "max-w-[334px]"
           }`}
         >
           {industry.desc}
@@ -117,17 +108,12 @@ function CardBody({ industry }: { industry: Industry }) {
       </div>
 
       {/* Expanded panel — lg+ only, fades in on hover as the card grows */}
-      <div className="who-uses-card-panel hidden lg:flex absolute inset-0 flex-col justify-between p-5 xl:p-7 bg-gradient-to-t from-[#050B16]/95 via-[#050B16]/65 to-[#050B16]/15">
-        <div className="flex justify-end">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur-sm">
-            <ArrowUpRight className="h-4 w-4" />
-          </span>
-        </div>
+      <div className="who-uses-card-panel hidden lg:flex absolute inset-0 flex-col justify-end p-5 xl:p-7 bg-gradient-to-t from-[#050B16]/95 via-[#050B16]/65 to-[#050B16]/15">
         <div className="flex flex-col gap-2 max-w-[440px]">
-          <h3 className="font-['Inter'] font-semibold leading-tight text-white text-[20px] xl:text-[24px] 2xl:text-[26px] whitespace-nowrap">
+          <h3 className="landing-display-title text-white">
             {industry.title}
           </h3>
-          <p className="font-['Inter'] font-normal leading-relaxed text-[#E8F0F8] text-[13px] xl:text-[15px] 2xl:text-[16px]">
+          <p className="landing-body leading-relaxed text-[#E8F0F8]">
             {industry.desc}
           </p>
         </div>
@@ -149,7 +135,7 @@ export function WhoUsesSection() {
           <h2 className="landing-display-title text-[#E8F0F8]">
             One platform. Every industry.
           </h2>
-          <p className="mt-4 sm:mt-5 lg:mt-[36px] mx-auto max-w-[60ch] lg:max-w-[1184px] font-['Inter'] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px] font-light leading-normal text-[#8FA8C8]">
+          <p className="landing-section-sub mt-4 sm:mt-5 lg:mt-[36px] mx-auto max-w-[60ch] lg:max-w-[1184px] font-light">
             From restaurants to retail, Astryd adapts to your business, unifying
             your operations no matter your industry.
           </p>
@@ -159,11 +145,10 @@ export function WhoUsesSection() {
           {SLOTS.map((slot) => {
             if (!Array.isArray(slot)) {
               const industry = slot;
-              const smSpan = industry.wide ? "sm:col-span-2" : "sm:col-span-1";
               return (
                 <article
                   key={industry.id}
-                  className={`who-uses-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)] ${smSpan}`}
+                  className="who-uses-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
                 >
                   <CardBody industry={industry} />
                 </article>
@@ -175,7 +160,7 @@ export function WhoUsesSection() {
                 {slot.map((industry) => (
                   <article
                     key={industry.id}
-                    className="who-uses-substack-card sm:col-span-1 relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
+                    className="who-uses-substack-card relative group overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-[#0F2540] shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
                   >
                     <CardBody industry={industry} />
                   </article>

@@ -111,12 +111,12 @@ export function CTASection() {
               <span className="text-[#00C4CD]">one dashboard?</span>
             </h2>
 
-            <p className="mb-4 max-w-[460px] font-['Inter'] text-[14px] font-normal leading-relaxed text-[#8FA8C8] sm:text-[15px] md:text-[16px]">
+            <p className="landing-section-sub mb-4 max-w-[460px] leading-relaxed">
               See how Astryd unifies CRM, finance, inventory, and workforce — with Ask
               Astryd answering questions from your live data.
             </p>
 
-            <p className="font-['Inter'] text-[12px] text-[#4A6480]">
+            <p className="landing-body text-[#4A6480]">
               Questions?{" "}
               <a
                 href="mailto:customersupport@astryd.ai"
@@ -140,10 +140,10 @@ export function CTASection() {
                   <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#34D399]/15">
                     <CheckCircle2 className="h-9 w-9 text-[#34D399]" />
                   </div>
-                  <h3 className="mb-3 font-['Inter'] text-[20px] font-semibold text-white">
+                  <h3 className="landing-section-sub mb-3 font-semibold text-white">
                     Demo request submitted
                   </h3>
-                  <p className="mb-8 max-w-[380px] font-['Inter'] text-[14px] leading-relaxed text-[#8FA8C8]">
+                  <p className="landing-body mb-8 max-w-[380px] leading-relaxed">
                     Thank you, {name}. Our team will reach out at {email} within 24 hours
                     to schedule your session.
                   </p>
@@ -158,10 +158,10 @@ export function CTASection() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
                   <div className="mb-1">
-                    <h3 className="font-['Inter'] text-[18px] font-semibold text-white sm:text-[20px]">
+                    <h3 className="landing-section-sub font-semibold text-white">
                       Book a live session
                     </h3>
-                    <p className="mt-1 font-['Inter'] text-[12px] leading-relaxed text-[#8FA8C8] sm:text-[13px]">
+                    <p className="landing-body mt-1 leading-relaxed">
                       Tell us a bit about your business and we&apos;ll prepare a custom demo.
                     </p>
                   </div>
