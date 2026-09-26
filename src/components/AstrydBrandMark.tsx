@@ -7,9 +7,9 @@ type AstrydBrandMarkProps = {
   onNavigate?: () => void;
   /** Height classes for the full logo image (icon + wordmark). */
   imgClassName?: string;
-  /** @deprecated Kept for call-site compat; ignored — logo image includes wordmark. */
+  /** @deprecated Kept for call-site compat; ignored - logo image includes wordmark. */
   iconClassName?: string;
-  /** @deprecated Kept for call-site compat; ignored — logo image includes wordmark. */
+  /** @deprecated Kept for call-site compat; ignored - logo image includes wordmark. */
   textClassName?: string;
 };
 

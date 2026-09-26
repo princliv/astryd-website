@@ -11,7 +11,7 @@ export function HeroSection() {
     >
       {/*
         Figma 1728 frame (1291:903) absolute Y:
-        eyebrow 248 · title 309 · sub 494 · CTAs 601 · dashboard 752
+        eyebrow 248 - title 309 - sub 494 - CTAs 601 - dashboard 752
       */}
       <div className="hero-section-content landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-[157px]">
         <div className="hero-copy mx-auto flex w-full flex-col items-center text-center">

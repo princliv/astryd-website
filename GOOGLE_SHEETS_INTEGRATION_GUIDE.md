@@ -190,7 +190,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 2. Navigate to the **Book a demo** form on your site.
 3. Fill out the form (e.g. Name: Jane Doe, Email: jane@example.com).
 4. Click **Submit demo request**.
-5. Check your **Google Sheet** — a new row with timestamp and lead details will appear instantly!
+5. Check your **Google Sheet** - a new row with timestamp and lead details will appear instantly!
 
 ---
 

@@ -9,7 +9,7 @@ export function AskAstrydPromptSection() {
       className="section-dark ask-astryd-prompt-section section-figma-bg relative overflow-hidden"
       snap={false}
     >
-      {/* Figma 1728: content inset x=158 → visual ends at 1571 (≈158px sides) */}
+      {/* Figma 1728: content inset x=158 -> visual ends at 1571 (~158px sides) */}
       <div className="landing-section-content ask-astryd-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-[158px] pb-8 sm:pb-10 lg:pb-12">
         <div className="ask-astryd-prompt-layout mx-auto">
           <Reveal y={18} className="ask-astryd-prompt-copy">

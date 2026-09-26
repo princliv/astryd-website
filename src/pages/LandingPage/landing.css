@@ -2,7 +2,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    BASE LANDING WRAPPER
-   Full-width, no side padding here — each section handles its own
+   Full-width, no side padding here - each section handles its own
    ═══════════════════════════════════════════════════════════ */
 .astryd-landing {
   /* Figma 1291:903 continuous page background */
@@ -19,11 +19,11 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SECTION RHYTHM  —  dark / light / dark / light …
+   SECTION RHYTHM  -  dark / light / dark / light ...
    Each section spans 100% viewport width, content centred inside
    ═══════════════════════════════════════════════════════════ */
 
-/* DARK section — deep navy  #050B16 */
+/* DARK section - deep navy  #050B16 */
 .section-dark {
   width: 100%;
   background-color: #050b16;
@@ -51,7 +51,7 @@
   background-color: transparent;
 }
 
-/* Hero-local teal bloom — centered behind navbar / headline */
+/* Hero-local teal bloom - centered behind navbar / headline */
 .hero-section-bg.section-figma-bg::before {
   content: "";
   position: absolute;
@@ -72,7 +72,7 @@
     );
 }
 
-/* Features — subtle mid-page teal depth from Figma layer stack */
+/* Features - subtle mid-page teal depth from Figma layer stack */
 .features-section-bg.section-figma-bg::before {
   content: "";
   position: absolute;
@@ -93,7 +93,7 @@
     );
 }
 
-/* Ask Astryd — soft blue/teal glow behind the prompt visual */
+/* Ask Astryd - soft blue/teal glow behind the prompt visual */
 .ask-astryd-prompt-section.section-figma-bg::before {
   content: "";
   position: absolute;
@@ -119,7 +119,7 @@
   filter: blur(28px);
 }
 
-/* Industries — right-side navy/teal wash from Figma lower frame */
+/* Industries - right-side navy/teal wash from Figma lower frame */
 .who-uses-section-bg.section-figma-bg::before {
   content: "";
   position: absolute;
@@ -144,7 +144,7 @@
     );
 }
 
-/* LIGHT section — crisp white  #FFFFFF */
+/* LIGHT section - crisp white  #FFFFFF */
 .section-light {
   width: 100%;
   background-color: #ffffff;
@@ -153,7 +153,7 @@
   overflow: hidden;
 }
 
-/* ACCENT section — soft off-white with a faint cyan wash */
+/* ACCENT section - soft off-white with a faint cyan wash */
 .section-accent {
   width: 100%;
   background-color: #f4fdfe;
@@ -162,7 +162,7 @@
   overflow: hidden;
 }
 
-/* Inner content container — centred, max-width, horizontal padding */
+/* Inner content container - centred, max-width, horizontal padding */
 .section-inner {
   max-width: 1200px;
   margin-left: auto;
@@ -200,7 +200,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   TYPOGRAPHY  — colours flip per section background
+   TYPOGRAPHY  - colours flip per section background
    ═══════════════════════════════════════════════════════════ */
 
 /* Dark-section text colours */
@@ -266,7 +266,7 @@
 
 .section-title {
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* → 42px */
+  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* -> 42px */
   font-weight: 600;
   line-height: 1.15;
   margin: 0 0 16px;
@@ -278,10 +278,10 @@
   }
 }
 
-/* Shared display heading — same scale as .hero-title */
+/* Shared display heading - same scale as .hero-title */
 .landing-display-title {
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* → 42px */
+  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* -> 42px */
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -294,7 +294,7 @@
   }
 }
 
-/* Shared section subheading — same scale as .hero-subcopy */
+/* Shared section subheading - same scale as .hero-subcopy */
 .landing-section-sub {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -315,7 +315,7 @@
   }
 }
 
-/* Shared body copy — same scale as section sub / hero subcopy */
+/* Shared body copy - same scale as section sub / hero subcopy */
 .landing-body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -361,9 +361,9 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO — Figma 1728 spacing (node 1291:903)
-   eyebrow y=248 · title 309 · sub 494 · CTAs 601 · dash 752
-   Dashboard mask 1414×853 with bottom fade (1302:29701)
+   HERO - Figma 1728 spacing (node 1291:903)
+   eyebrow y=248 - title 309 - sub 494 - CTAs 601 - dash 752
+   Dashboard mask 1414x853 with bottom fade (1302:29701)
    ═══════════════════════════════════════════════════════════ */
 .hero-section-content {
   display: flex;
@@ -381,7 +381,7 @@
   margin: 0 0 24px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 11px; /* was 13px; ×42/48 */
+  font-size: 11px; /* was 13px; x42/48 */
   line-height: 1;
   letter-spacing: 0.02em;
   color: #00c4cd;
@@ -389,13 +389,13 @@
 
 @media (min-width: 640px) {
   .hero-eyebrow {
-    font-size: 14px; /* was 16px; ×42/48 */
+    font-size: 14px; /* was 16px; x42/48 */
   }
 }
 
 @media (min-width: 1024px) {
   .hero-eyebrow {
-    font-size: 21px; /* was 24px; ×42/48 */
+    font-size: 21px; /* was 24px; x42/48 */
     margin-bottom: 24px;
   }
 }
@@ -405,7 +405,7 @@
   max-width: 1069px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* → 42px */
+  font-size: clamp(1.75rem, 1.1rem + 2vw, 2.625rem); /* -> 42px */
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: #ffffff;
@@ -486,7 +486,7 @@
   }
 }
 
-/* Figma mask group 1414×853 — bottom fade baked into export + CSS mask */
+/* Figma mask group 1414x853 - bottom fade baked into export + CSS mask */
 .hero-dashboard-frame {
   position: relative;
   width: 100%;
@@ -597,21 +597,21 @@
 /* ═══════════════════════════════════════════════════════════
    SNAP SCROLL SHELL
    Each section is never shorter than one viewport (100dvh) but can
-   grow taller to fit its content — scoped to this landing-page
+   grow taller to fit its content - scoped to this landing-page
    wrapper only, never html/body, since "/" is one route among many
    in the app router.
 
-   Scrolling itself is completely native/free — no CSS scroll-snap.
+   Scrolling itself is completely native/free - no CSS scroll-snap.
    Both `mandatory` and `proximity` proved unreliable once sections
    can be taller than one viewport (proximity's pull-zone around a
    tall section's top edge trapped ordinary wheel scrolling near the
    top, making later sections unreachable). Snapping is instead done
-   in JS (useCustomSnap) — it only nudges into alignment when a
+   in JS (useCustomSnap) - it only nudges into alignment when a
    scroll comes to rest very close to a section edge, and never
    otherwise touches the scroll position.
    ═══════════════════════════════════════════════════════════ */
 .snap-scroll-root {
-  /* Figma: nav top inset (~10–20px) + bar height */
+  /* Figma: nav top inset (~10-20px) + bar height */
   --landing-nav-safe-space: 68px;
   --landing-page-inset: 16px;
   height: 100dvh;
@@ -671,7 +671,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ASK ASTRYD — fixed wave background; content scrolls over it
+   ASK ASTRYD - fixed wave background; content scrolls over it
    clip-path keeps the fixed layer visible only inside this section
    (must beat .snap-section overflow:hidden)
    ═══════════════════════════════════════════════════════════ */
@@ -695,7 +695,7 @@
   background-attachment: fixed;
 }
 
-/* Coarse / small screens: fixed attachment is unreliable — stretch with section */
+/* Coarse / small screens: fixed attachment is unreliable - stretch with section */
 @media (max-width: 767px), (hover: none) and (pointer: coarse) {
   .ask-astryd-fixed-bg {
     position: absolute;
@@ -704,7 +704,7 @@
   }
 }
 
-/* Ask Astryd chat — crisp pop-up entrance for each new message / typing row */
+/* Ask Astryd chat - crisp pop-up entrance for each new message / typing row */
 @keyframes askMsgPopIn {
   0% {
     opacity: 0;
@@ -768,14 +768,14 @@
   justify-content: flex-start;
 }
 
-/* Footer — natural height, not centered like the other sections. */
+/* Footer - natural height, not centered like the other sections. */
 .snap-section-free {
   height: auto;
   overflow: visible;
   display: block;
 }
 
-/* Replaces .section-py inside snap sections — tighter padding since
+/* Replaces .section-py inside snap sections - tighter padding since
    the logo header is absolute (not a tall fixed pill) */
 .section-py-compact {
   padding-top: 64px;
@@ -790,7 +790,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   NAVBAR — fixed glass bar; Sign in + Book a demo (Figma 1291:903)
+   NAVBAR - fixed glass bar; Sign in + Book a demo (Figma 1291:903)
    ═══════════════════════════════════════════════════════════ */
 .landing-nav-container {
   position: fixed;
@@ -840,7 +840,7 @@
   justify-content: space-between;
   gap: 16px;
   width: 100%;
-  max-width: 1644px; /* Figma bar width — keeps glass pill centered */
+  max-width: 1644px; /* Figma bar width - keeps glass pill centered */
   margin-left: auto;
   margin-right: auto;
   min-height: 48px;
@@ -983,7 +983,7 @@
 /* ═══════════════════════════════════════════════════════════
    BUTTONS
    ═══════════════════════════════════════════════════════════ */
-/* Primary CTA — compact to match reduced heading scale */
+/* Primary CTA - compact to match reduced heading scale */
 .landing-cta-primary {
   background: #00c4cd;
   color: #ffffff !important;
@@ -1162,7 +1162,7 @@
   transform: translateY(0);
 }
 
-/* Secondary — works on DARK backgrounds */
+/* Secondary - works on DARK backgrounds */
 .crm-btn-secondary {
   background: transparent;
   color: #00c4cd !important;
@@ -1187,7 +1187,7 @@
   border-color: #00c4cd;
 }
 
-/* Secondary dark variant — for LIGHT backgrounds */
+/* Secondary dark variant - for LIGHT backgrounds */
 .crm-btn-secondary-dark {
   background: transparent;
   color: #007b81 !important;
@@ -1236,7 +1236,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   GLASS CARDS  — dark-section variant
+   GLASS CARDS  - dark-section variant
    ═══════════════════════════════════════════════════════════ */
 .crm-glass-card {
   background: rgba(255, 255, 255, 0.04);
@@ -1268,7 +1268,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Highlight (featured) card — dark section */
+/* Highlight (featured) card - dark section */
 .crm-highlight-card {
   background: rgba(0, 196, 205, 0.06);
   border: 1.5px solid rgba(0, 196, 205, 0.28);
@@ -1526,7 +1526,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   FEATURES CAROUSEL — 1 → 2 → 3 → 4 cards by breakpoint
+   FEATURES CAROUSEL - 1 -> 2 -> 3 -> 4 cards by breakpoint
    Chrome (arrows/dots) wraps the carousel; card flex-basis untouched.
    Carousel track is full-bleed (0 side padding) while scrolling.
    ═══════════════════════════════════════════════════════════ */
@@ -1690,7 +1690,7 @@
 
 @media (min-width: 900px) {
   .features-card {
-    /* 3 visible — matches Figma (525×3 + gutters) */
+    /* 3 visible - matches Figma (525x3 + gutters) */
     flex-basis: calc((100% - 32px) / 3);
   }
 }
@@ -1710,7 +1710,7 @@
 }
 
 .features-card-media {
-  /* Figma mask 525×528 (node 1303:29703) */
+  /* Figma mask 525x528 (node 1303:29703) */
   aspect-ratio: 525 / 528;
   width: 100%;
   overflow: hidden;
@@ -1792,7 +1792,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ASK ASTRYD PROMPT SECTION — new Figma layout
+   ASK ASTRYD PROMPT SECTION - new Figma layout
    ═══════════════════════════════════════════════════════════ */
 .ask-astryd-prompt-section {
   background-color: transparent;
@@ -1869,7 +1869,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   WHO USES — responsive industry cards
+   WHO USES - responsive industry cards
    ═══════════════════════════════════════════════════════════ */
 .who-uses-card {
   min-height: 220px;
@@ -1885,7 +1885,7 @@
 
 /* At lg+ each slot's rest width is roughly (row width) / 5. These heights
    are set to ~2x that width so a single-image slot reads as a 1:2 portrait,
-   and — since two 1:1 squares stacked sum to the same total height — the
+   and - since two 1:1 squares stacked sum to the same total height - the
    Fitness/Retail stacked slot's two squares fall out correctly for free. */
 @media (min-width: 1024px) {
   .who-uses-card {
@@ -1902,7 +1902,7 @@
 }
 
 /* Below lg, a stacked slot (e.g. Boutique Fitness + Retail Stores) unwraps so
-   its two cards behave like ordinary standalone grid cells — same size as
+   its two cards behave like ordinary standalone grid cells - same size as
    every other card on mobile/tablet. */
 .who-uses-stack {
   display: contents;
@@ -1922,7 +1922,7 @@
   }
 }
 
-/* Hover-expand accordion — desktop only (lg+), where hover is reliable */
+/* Hover-expand accordion - desktop only (lg+), where hover is reliable */
 @media (min-width: 1024px) {
   .who-uses-accordion {
     display: flex;
@@ -1939,7 +1939,7 @@
     flex-grow: 1;
   }
 
-  /* Equal specificity to the rule above — declared later, so it wins for the
+  /* Equal specificity to the rule above - declared later, so it wins for the
      actually-hovered card while siblings still shrink via the rule above. */
   .who-uses-accordion .who-uses-card:hover {
     flex-grow: 5;
@@ -1950,7 +1950,7 @@
     transition: opacity 0.35s ease 0.1s;
   }
 
-  /* Direct-child combinator — the stacked slot wrapper also carries the
+  /* Direct-child combinator - the stacked slot wrapper also carries the
      .who-uses-card class, and its :hover state bubbles up from either
      sub-card; a descendant selector here would incorrectly reveal both
      sub-cards' panels whichever one is actually hovered. */
@@ -1962,14 +1962,14 @@
     transition: opacity 0.25s ease;
   }
 
-  /* Hide every collapsed strip's label once any card in the row is hovered —
+  /* Hide every collapsed strip's label once any card in the row is hovered -
      the hovered card shows its full panel instead, and its now-narrow
      siblings have no room to display their own label. */
   .who-uses-accordion:hover .who-uses-card-label {
     opacity: 0;
   }
 
-  /* Stacked slot — one horizontal accordion "column" holding two cards on
+  /* Stacked slot - one horizontal accordion "column" holding two cards on
      top of each other, each running its own vertical grow/shrink accordion.
      Gap matches the row's own gap (lg:gap-3) so the two cards read as
      separate containers, spaced the same as the columns beside them. */
@@ -2001,7 +2001,7 @@
   }
 }
 
-/* Row gap bumps to xl:gap-4 (16px) at this breakpoint — match it here too. */
+/* Row gap bumps to xl:gap-4 (16px) at this breakpoint - match it here too. */
 @media (min-width: 1280px) {
   .who-uses-stack {
     gap: 16px;
