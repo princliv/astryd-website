@@ -59,7 +59,7 @@ const tocItems: TocItem[] = [
 
 const SUPPORT_EMAIL = "customersupport@astryd.ai";
 const SUPPORT_PHONE = "(929) 607-8735";
-const REGISTERED_ADDRESS = "60 Water Street, Brooklyn, New York 11201";
+const REGISTERED_ADDRESS = "Astryd AI\n211 E 43rd St\n7th Floor #239\nNew York, NY 10017";
 
 export function TermsOfServicePage() {
   const [activeSection, setActiveSection] = useState("");
@@ -442,7 +442,7 @@ export function TermsOfServicePage() {
                 <div className="font-semibold text-white text-base">ResearchPort LLC dba Astryd</div>
                 <div className="flex items-start gap-2.5 text-sm text-[#c8d8ec]">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#00C4CD]" />
-                  <span>{REGISTERED_ADDRESS}</span>
+                  <span className="whitespace-pre-line">{REGISTERED_ADDRESS}</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-[#c8d8ec]">
                   <Mail className="h-4 w-4 shrink-0 text-[#00C4CD]" />

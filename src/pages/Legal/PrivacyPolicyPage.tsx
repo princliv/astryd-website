@@ -50,7 +50,7 @@ const tocItems: TocItem[] = [
 ];
 
 const PRIVACY_EMAIL = "customersupport@astryd.ai";
-const REGISTERED_ADDRESS = "60 Water Street Apt 605, BK 11201";
+const REGISTERED_ADDRESS = "Astryd AI\n211 E 43rd St\n7th Floor #239\nNew York, NY 10017";
 
 const PrivacyPolicyPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -208,7 +208,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <div className="policy-card p-4 text-sm space-y-2">
                 <p className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#4A6480]" />
-                  <span><strong>Registered address:</strong> {REGISTERED_ADDRESS}</span>
+                  <span className="whitespace-pre-line"><strong>Registered address:</strong>{"\n"}{REGISTERED_ADDRESS}</span>
                 </p>
                 <p className="flex items-start gap-2">
                   <Mail className="h-4 w-4 mt-0.5 shrink-0 text-[#4A6480]" />
@@ -749,7 +749,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="h-4 w-4 mt-0.5 text-[#4A6480]" />
-                    <p className="text-[#8FA8C8]">{REGISTERED_ADDRESS}</p>
+                    <p className="whitespace-pre-line text-[#8FA8C8]">{REGISTERED_ADDRESS}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="h-4 w-4 text-[#4A6480]" />
