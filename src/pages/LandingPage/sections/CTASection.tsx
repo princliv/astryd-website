@@ -100,7 +100,7 @@ export function CTASection() {
 
       <div className="landing-section-content relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14 pb-10 sm:pb-12 lg:pb-14">
         <div className="mx-auto grid max-w-[1200px] 2xl:max-w-[1400px] grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
-          {/* Left — copy */}
+          {/* Left - copy */}
           <div className="flex flex-col justify-center lg:col-span-5">
             <span className="mb-2 block font-['Inter'] text-[11px] font-semibold uppercase tracking-[0.16em] text-[#00C4CD] sm:text-[12px]">
               Book a demo
@@ -112,7 +112,7 @@ export function CTASection() {
             </h2>
 
             <p className="landing-section-sub mb-4 max-w-[460px] leading-relaxed">
-              See how Astryd unifies CRM, finance, inventory, and workforce — with Ask
+              See how Astryd unifies CRM, finance, inventory, and workforce - with Ask
               Astryd answering questions from your live data.
             </p>
 
@@ -127,7 +127,7 @@ export function CTASection() {
             </p>
           </div>
 
-          {/* Right — form card */}
+          {/* Right - form card */}
           <div className="flex items-center lg:col-span-7 lg:justify-end">
             <div
               className={cn(
@@ -304,7 +304,7 @@ export function CTASection() {
                   </button>
 
                   <p className="text-center font-['Inter'] text-[11px] text-[#4A6480]">
-                    No credit card required · We&apos;ll reply within one business day
+                    No credit card required - We&apos;ll reply within one business day
                   </p>
                 </form>
               )}

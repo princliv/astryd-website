@@ -8,49 +8,49 @@ import { landingAssets } from "../assets";
 const FEATURES = [
   {
     title: "Point of Sale & Dashboard",
-    meta: "Orders · Payments · Display",
+    meta: "Orders - Payments - Display",
     desc: "Your counter, your way. Built for how you actually run your business.",
     image: landingAssets.features.tables,
   },
   {
     title: "Menus, Storefronts & Online Ordering",
-    meta: "Products · Ordering · Barcodes · Checkout",
+    meta: "Products - Ordering - Barcodes - Checkout",
     desc: "Update your menu or storefront instantly. Accept orders online and in person. Scan barcodes at checkout automatically.",
     image: landingAssets.features.menus,
   },
   {
     title: "Inventory Management",
-    meta: "Stock · Vendors · Reorders · Barcodes",
+    meta: "Stock - Vendors - Reorders - Barcodes",
     desc: "Real-time stock tracking with barcode scanning, automatic reorder triggers, and vendor syncing.",
     image: landingAssets.features.inventory,
   },
   {
     title: "Memberships & Recurring Payments",
-    meta: "Plans · Billing · Renewals",
+    meta: "Plans - Billing - Renewals",
     desc: "Set it once. Astryd bills your members automatically every cycle.",
     image: landingAssets.features.memberships,
   },
   {
     title: "Time Tracking & Payroll",
-    meta: "Hours · Wages · Compliance",
+    meta: "Hours - Wages - Compliance",
     desc: "Clock-outs feed directly into payroll. One tap to approve. Done.",
     image: landingAssets.features.payroll,
   },
   {
     title: "Accounts Payable",
-    meta: "Expenses · Bills · Vendors",
+    meta: "Expenses - Bills - Vendors",
     desc: "Every bill, every vendor, every expense. Tracked automatically.",
     image: landingAssets.features.accountsPayable,
   },
   {
     title: "Invoicing & Accounts Receivable",
-    meta: "Invoices · Tracking · Collections",
+    meta: "Invoices - Tracking - Collections",
     desc: "Send invoices and get paid. Astryd chases late payments so you don't have to.",
     image: landingAssets.features.invoicing,
   },
   {
     title: "CRM & Engagement",
-    meta: "Clients · Outreach · Retention",
+    meta: "Clients - Outreach - Retention",
     desc: "Know your customers. Keep them coming back.",
     image: landingAssets.features.crm,
   },
@@ -76,7 +76,7 @@ export function FeaturesSection() {
     const getCards = () =>
       Array.from(root.querySelectorAll<HTMLElement>("[data-feature-card]"));
 
-    /** Scroll offset that aligns a card with the track’s left content edge */
+    /** Scroll offset that aligns a card with the track's left content edge */
     const getScrollLeftForIndex = (index: number) => {
       const cards = getCards();
       if (!cards.length) return 0;
@@ -137,10 +137,10 @@ export function FeaturesSection() {
       indexRef.current = clamped;
       setActiveIndex(clamped);
 
-      // Already there — still update dots, skip tween
+      // Already there - still update dots, skip tween
       if (Math.abs(from - target) < 1) return;
 
-      // Tween via proxy — direct scrollLeft tweens often jump with no swipe
+      // Tween via proxy - direct scrollLeft tweens often jump with no swipe
       root.style.scrollSnapType = "none";
       tweeningRef.current = true;
       tweenRef.current?.kill();

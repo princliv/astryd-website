@@ -15,7 +15,7 @@ const INDUSTRIES: Industry[] = [
   {
     id: "restaurant",
     title: "Restaurants & Cafes",
-    desc: "Track POS sales, manage vendor invoices, schedule kitchen staff, and reconcile daily revenue — all in one place.",
+    desc: "Track POS sales, manage vendor invoices, schedule kitchen staff, and reconcile daily revenue - all in one place.",
     image: landingAssets.industry.restaurants,
     wide: true,
     overlay: 0.43,
@@ -23,7 +23,7 @@ const INDUSTRIES: Industry[] = [
   {
     id: "fitness",
     title: "Boutique Fitness",
-    desc: "Fill every class, manage memberships, pay your staff, and track revenue — without five different apps.",
+    desc: "Fill every class, manage memberships, pay your staff, and track revenue - without five different apps.",
     image: landingAssets.industry.fitness,
     wide: false,
     overlay: 0.2,
@@ -39,7 +39,7 @@ const INDUSTRIES: Industry[] = [
   {
     id: "salon",
     title: "Beauty & Wellness",
-    desc: "Appointment scheduling, staff commissions, product inventory, and billing — simplified.",
+    desc: "Appointment scheduling, staff commissions, product inventory, and billing - simplified.",
     image: landingAssets.industry.salon,
     wide: false,
     overlay: 0.2,
@@ -55,14 +55,14 @@ const INDUSTRIES: Industry[] = [
   {
     id: "business",
     title: "Business Services",
-    desc: "Sync orders, manage returns, track warehouse stock, and measure ad ROI — all from Astryd.",
+    desc: "Sync orders, manage returns, track warehouse stock, and measure ad ROI - all from Astryd.",
     image: landingAssets.industry.business,
     wide: true,
     overlay: 0,
   },
 ];
 
-// At lg+ the accordion shows 5 slots — "Boutique Fitness" and "Retail Stores"
+// At lg+ the accordion shows 5 slots - "Boutique Fitness" and "Retail Stores"
 // share one slot, stacked, so the row mirrors a 5-column bento layout.
 const SLOTS: (Industry | Industry[])[] = [
   INDUSTRIES[0],
@@ -93,7 +93,7 @@ function CardBody({ industry }: { industry: Industry }) {
         className="absolute inset-x-0 bottom-0 h-[55%] sm:h-[50%] bg-gradient-to-t from-[#050B16]/90 via-[#050B16]/50 to-transparent"
       />
 
-      {/* Collapsed-strip label — visible at rest, fades out on lg+ when any card in the row is hovered */}
+      {/* Collapsed-strip label - visible at rest, fades out on lg+ when any card in the row is hovered */}
       <div className="who-uses-card-label absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-4 xl:p-5 flex flex-col gap-1 sm:gap-1.5">
         <h3 className="features-card-title">
           {industry.title}
@@ -107,7 +107,7 @@ function CardBody({ industry }: { industry: Industry }) {
         </p>
       </div>
 
-      {/* Expanded panel — lg+ only, fades in on hover as the card grows */}
+      {/* Expanded panel - lg+ only, fades in on hover as the card grows */}
       <div className="who-uses-card-panel hidden lg:flex absolute inset-0 flex-col justify-end p-5 xl:p-7 bg-gradient-to-t from-[#050B16]/95 via-[#050B16]/65 to-[#050B16]/15">
         <div className="flex flex-col gap-2 max-w-[440px]">
           <h3 className="landing-display-title text-white">
@@ -130,7 +130,7 @@ export function WhoUsesSection() {
       snap={false}
     >
       <div className="landing-section-content who-uses-section-content relative z-10 w-full px-4 sm:px-5 md:px-6 lg:px-6 xl:px-8 pb-12 sm:pb-16 lg:pb-20">
-        {/* Header spacing only — bento/accordion layout frozen */}
+        {/* Header spacing only - bento/accordion layout frozen */}
         <Reveal y={20} className="mx-auto mb-8 sm:mb-10 lg:mb-[80px] max-w-[1184px] 2xl:max-w-[1400px] text-center">
           <h2 className="landing-display-title text-[#E8F0F8]">
             One platform. Every industry.

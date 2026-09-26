@@ -30,9 +30,9 @@ npm run deploy
 
 The script:
 
-1. Builds the site (`npm run build` → `dist/`)
+1. Builds the site (`npm run build` -> `dist/`)
 2. Syncs `dist/` to `s3://astryd-website` (`--delete` removes stale objects)
-3. Invalidates CloudFront so visitors get the new files within 1–2 minutes
+3. Invalidates CloudFront so visitors get the new files within 1-2 minutes
 
 Override the AWS profile if needed:
 
@@ -64,7 +64,7 @@ Keep these records. Do **not** commit or change them during a normal redeploy.
 | Type | Name | Value | Purpose |
 |---|---|---|---|
 | CNAME | `www` | `d1c701te2bf1yx.cloudfront.net` | Serves the site |
-| Domain forwarding | `@` | `https://www.astryd.ai` (301) | Apex → www |
+| Domain forwarding | `@` | `https://www.astryd.ai` (301) | Apex -> www |
 | CNAME | `_d2beda62cc8b67d45b4d8b1701adb846` | `_15aca2f7f681846413669e769a95479c.jkddzztszm.acm-validations.aws.` | ACM validation |
 | CNAME | `_0dd0303cf98fc0bc830ba1d85c398d09.www` | `_7aa78ed58d9318ce7a01090cc153dfbf.jkddzztszm.acm-validations.aws.` | ACM validation |
 
@@ -78,16 +78,16 @@ Live URLs:
 
 Commit these when changing how the site is published:
 
-- `deploy.sh` — build + S3 sync + CloudFront invalidation
-- `DEPLOY.md` — this guide
-- `package.json` — `deploy` script
-- Source changes that should go live (`src/…`)
+- `deploy.sh` - build + S3 sync + CloudFront invalidation
+- `DEPLOY.md` - this guide
+- `package.json` - `deploy` script
+- Source changes that should go live (`src/...`)
 
 Do **not** commit:
 
-- `dist/` — generated on every build (already in `.gitignore`)
-- `node_modules/` — install locally (`npm install`)
-- `.env*` — may contain `VITE_GOOGLE_SHEET_WEBHOOK_URL`
+- `dist/` - generated on every build (already in `.gitignore`)
+- `node_modules/` - install locally (`npm install`)
+- `.env*` - may contain `VITE_GOOGLE_SHEET_WEBHOOK_URL`
 - AWS keys or credentials
 
 `dist/` and `node_modules/` were historically tracked in this repo. Leave local modifications to those paths unstaged.
@@ -101,4 +101,4 @@ npm install
 ./deploy.sh
 ```
 
-Then hard-refresh the site (or wait 1–2 minutes for the invalidation).
+Then hard-refresh the site (or wait 1-2 minutes for the invalidation).

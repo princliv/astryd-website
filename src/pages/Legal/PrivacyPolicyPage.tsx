@@ -255,41 +255,41 @@ const PrivacyPolicyPage: React.FC = () => {
             <PolicySection id="definitions" number="3" title="Definitions" icon={<BookOpen />}>
               <ul className="list-none space-y-3">
                 <li>
-                  <strong className="text-white">Applicable Data Protection Laws</strong> — all Laws applicable to
+                  <strong className="text-white">Applicable Data Protection Laws</strong> - all Laws applicable to
                   the Processing of Personal Data under this Policy, including, as applicable, the California
                   Consumer Privacy Act as amended by the California Privacy Rights Act (CCPA), and other U.S. state
                   comprehensive privacy laws.
                 </li>
                 <li>
-                  <strong className="text-white">Customer Data</strong> — information, data, and other content, in
+                  <strong className="text-white">Customer Data</strong> - information, data, and other content, in
                   any form or medium, that is collected, downloaded, submitted, or otherwise received, directly or
                   indirectly, from a Business Operator or Authorized User by or through the Services, including any
                   Personal Data and Payroll Data.
                 </li>
                 <li>
-                  <strong className="text-white">Personal Data</strong> — any information that identifies, relates
+                  <strong className="text-white">Personal Data</strong> - any information that identifies, relates
                   to, describes, or is reasonably capable of being associated with an identified or identifiable
                   individual, including Payroll Data, that Astryd Processes in connection with the Platform.
                 </li>
                 <li>
-                  <strong className="text-white">Payroll Data</strong> — Customer Data relating to the calculation,
+                  <strong className="text-white">Payroll Data</strong> - Customer Data relating to the calculation,
                   processing, withholding, remittance, or disbursement of wages, salaries, bonuses, benefits
                   contributions, tax withholdings, and related compensation amounts, including bank account and
                   routing numbers, Social Security Numbers, and tax identification information.
                 </li>
                 <li>
-                  <strong className="text-white">Security Incident</strong> — any confirmed unauthorized or
+                  <strong className="text-white">Security Incident</strong> - any confirmed unauthorized or
                   unlawful access to, or acquisition, disclosure, use, alteration, or destruction of, Customer Data
                   (including any Personal Data) in Astryd's or a Sub-processor's possession or control.
                 </li>
                 <li>
-                  <strong className="text-white">Sensitive Data</strong> — (a) government-issued identification
+                  <strong className="text-white">Sensitive Data</strong> - (a) government-issued identification
                   numbers, including Social Security Numbers; (b) financial account, payment card, or routing
                   numbers; (c) health, health insurance, or biometric data; and (d) any other category of Personal
                   Data subject to heightened protection requirements under Applicable Data Protection Laws.
                 </li>
                 <li>
-                  <strong className="text-white">Sub-processor</strong> — any third party engaged by Astryd to
+                  <strong className="text-white">Sub-processor</strong> - any third party engaged by Astryd to
                   Process Personal Data in connection with the provision of the Platform, including any payment
                   processor, cloud-hosting provider, or other service provider.
                 </li>
@@ -342,7 +342,7 @@ const PrivacyPolicyPage: React.FC = () => {
               </h4>
               <p>When a consumer completes a transaction at the point of sale of an Astryd-enabled business, we may collect:</p>
               <ul className="list-disc pl-6 space-y-1.5">
-                <li><strong>Payment card data:</strong> cardholder name, card number (tokenized), expiration date, billing ZIP code, transaction amount, and transaction timestamp. Full card numbers are never stored by Astryd — all payment card data is tokenized at the point of capture and processed through our payment infrastructure partner (Finix) in compliance with PCI DSS standards.</li>
+                <li><strong>Payment card data:</strong> cardholder name, card number (tokenized), expiration date, billing ZIP code, transaction amount, and transaction timestamp. Full card numbers are never stored by Astryd - all payment card data is tokenized at the point of capture and processed through our payment infrastructure partner (Finix) in compliance with PCI DSS standards.</li>
                 <li><strong>Transaction data:</strong> items purchased, transaction total, tip amount, payment method, and location identifier.</li>
                 <li><strong>Contact information (if voluntarily provided):</strong> email address or phone number for receipt delivery, loyalty programs, or marketing opt-ins.</li>
               </ul>
@@ -409,8 +409,8 @@ const PrivacyPolicyPage: React.FC = () => {
                 5.5 AI-Powered Features
               </h4>
               <p>
-                Astryd's Platform includes AI-powered analytics features that process your business data —
-                including POS transaction events, payroll runs, and banking activity — to generate insights
+                Astryd's Platform includes AI-powered analytics features that process your business data -
+                including POS transaction events, payroll runs, and banking activity - to generate insights
                 such as cash flow risk alerts, payroll automation suggestions, revenue intelligence, and tax
                 liability forecasts. These features operate on your data within Astryd's platform and are not
                 used to train external AI models. You may disable AI features in your account settings.
@@ -499,8 +499,8 @@ const PrivacyPolicyPage: React.FC = () => {
             {/* Section 7 */}
             <PolicySection id="glba" number="7" title="Gramm-Leach-Bliley Act (GLBA) Notice" icon={<Shield />}>
               <p>
-                Astryd provides financial products and services — including business deposit accounts, payment
-                processing, and payroll services — that are subject to the Gramm-Leach-Bliley Act (GLBA).
+                Astryd provides financial products and services - including business deposit accounts, payment
+                processing, and payroll services - that are subject to the Gramm-Leach-Bliley Act (GLBA).
                 This section constitutes our GLBA privacy notice.
               </p>
               <div className="mt-4 space-y-4">
@@ -680,7 +680,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <ul className="list-disc pl-6 space-y-1.5">
                 <li>Encryption of all data in transit using TLS 1.2 or higher.</li>
                 <li>Encryption of sensitive data at rest, including SSNs, bank account numbers, and payroll tax data.</li>
-                <li>Payment card data tokenization at the point of capture — full card numbers are never stored on Astryd systems.</li>
+                <li>Payment card data tokenization at the point of capture - full card numbers are never stored on Astryd systems.</li>
                 <li>Role-based access controls limiting employee access to personal data on a need-to-know basis.</li>
                 <li>Multi-factor authentication for Platform accounts.</li>
                 <li>Regular security assessments and penetration testing.</li>

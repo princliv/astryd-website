@@ -172,7 +172,7 @@ export function TermsOfServicePage() {
             {/* Section 1 */}
             <TermsSection id="site-purpose" number="1" title="The Site and Its Purpose" icon={<Globe />}>
               <p>
-                The Site provides information about Astryd&apos;s autonomous financial operating agent platform for independent small and medium-sized business operators, including information about features, pricing, and how to request access or a demonstration. The Site is not itself the Astryd platform — access to and use of the Astryd platform is governed by a separate Software as a Service Agreement.
+                The Site provides information about Astryd&apos;s autonomous financial operating agent platform for independent small and medium-sized business operators, including information about features, pricing, and how to request access or a demonstration. The Site is not itself the Astryd platform - access to and use of the Astryd platform is governed by a separate Software as a Service Agreement.
               </p>
               <p>
                 Astryd reserves the right to modify, suspend, or discontinue the Site or any portion thereof at any time and without notice. Astryd will not be liable to you or any third party for any modification, suspension, or discontinuation of the Site.
@@ -195,7 +195,7 @@ export function TermsOfServicePage() {
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">3.1 Astryd&apos;s Intellectual Property</h3>
                   <p>
-                    The Site and all of its contents, features, and functionality — including but not limited to text, graphics, logos, icons, images, audio clips, data compilations, software, and the compilation and arrangement thereof — are the exclusive property of Astryd or its licensors and are protected by United States and international copyright, trademark, trade secret, patent, and other intellectual property laws.
+                    The Site and all of its contents, features, and functionality - including but not limited to text, graphics, logos, icons, images, audio clips, data compilations, software, and the compilation and arrangement thereof - are the exclusive property of Astryd or its licensors and are protected by United States and international copyright, trademark, trade secret, patent, and other intellectual property laws.
                   </p>
                   <p className="mt-3">
                     The Astryd name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of ResearchPort LLC. You may not use such marks without the prior written permission of Astryd. All other names, logos, product and service names, designs, and slogans on the Site are the trademarks of their respective owners.
@@ -253,7 +253,7 @@ export function TermsOfServicePage() {
             </TermsSection>
 
             {/* Section 5 */}
-            <TermsSection id="platform-operators" number="5" title="Platform Operators — Additional Terms" icon={<Server />}>
+            <TermsSection id="platform-operators" number="5" title="Platform Operators - Additional Terms" icon={<Server />}>
               <p>
                 If you are a Customer who has entered into a Software as a Service Agreement with Astryd (an &quot;Operator&quot;), the following additional terms apply to your use of the Site:
               </p>
